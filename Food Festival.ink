@@ -45,4 +45,10 @@ The patented dimension corp vending machine is completely mundane unless a disce
 ->Vending_Machine_Entrance
 
 ===Jenyth_Button===
-->Vending_Machine_Entrance
+<i>You.</i>
+* You believe that the voice in your head is addressing you.
+
+- Why <i>yes</i>, I am. A connisuer such as yourself surely cannot be considering <i>anything</i> else in this machine, aside from the finest batch of <i>Maison de Pomponelle</i> cabernet sauvignon. 
+
+*Look at something else...
+-> Vending_Machine_Entrance
