@@ -69,9 +69,25 @@ The packaging is almost entirely disclaimer text printed on an image of Tilly Si
 
 =Eaten
 
-The slices themselves remind you of beetroot, you drop one onto your hand to examine it and almost immediately your hand begins to tingle.
+The slices themselves are light brown unassuming discs that remind you of dried apricot. You drop one onto the palm of your hand to examine it, and almost immediately your hand begins to tingle. The spice is on your skin and it's a little bit much. You instinctively pop the slice in your mouth.
 
-->Vending_Machine_Entrance
+It tastes incredible. It's savoury. It's complex. It's sweet but also mature. It's earthy but also refreshing. It's... Oh here comes the spice. No. No. It's too spicy. It's just a little bit too spicy to enjoy it really.
+
+*[Spit it out.]
+
+    You splutter and spit it out.
+
+    
+*[Just bear it. Force yourself to chew.]
+
+No. No. It's really <i>too</i> spicy. You try to inhale and the air passing over the slice becomes hostile to all human life on its way down your throat. You splutter and just like that you've lost it.
+
+-
+
+The slightly too spicy slice slops onto the ground trailing smoke like the tail of a slimy comet.
+
+The packaging seems to sense your rejection and heats up rapidly in your hand until it's slightly too hot to hold and you drop it with a yelp. It cooks itself to ash right there on the floor in front of you. The thick smoke wafting from the torched packaging makes your mouth water, but you know it's actually too spicy to enjoy.
+    ->Vending_Machine_Entrance
 
 
 ===Lucy_Button===
