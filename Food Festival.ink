@@ -1,9 +1,9 @@
 ->Vending_Machine_Entrance
 ===Vending_Machine_Entrance===
 
-The patented dimension corp vending machine is completely mundane unless a discerning customer like yourself looks at it very closely. These are not normal products. These are not normal buttons.
+{The patented dimension corp vending machine is completely mundane unless a discerning customer like yourself looks at it very closely. These are not normal products. These are not normal buttons.|The machine waits hungrily for you to make another selection. Go on. Treat yourself. Open yourself up to new experiences.}
 
-*Thomas's Vending Machine Button.
++{not Thomas_Button.Pushed}Sister Tilly Sizzle's Slightly Too Hot Slices!
 ->Thomas_Button
 
 *Lucy's Vending Machine Button.
@@ -24,10 +24,19 @@ The patented dimension corp vending machine is completely mundane unless a disce
 *Jenyth's Vending Machine Button.
 ->Jenyth_Button
 
-->-> END
+
 
 ===Thomas_Button===
+
+*Push the button.
+
+->Pushed
+
+=Pushed
+
+Button pushed.
 ->Vending_Machine_Entrance
+
 
 ===Lucy_Button===
 ->Vending_Machine_Entrance
