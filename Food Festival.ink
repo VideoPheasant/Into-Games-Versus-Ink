@@ -12,7 +12,7 @@
 *Lyra's Vending Machine Button.
 ->Lyra_Button
 
-*Teo's Vending Machine Button.
++{not Teo_Button.ForcefullyPressAgain}Sir Jerry Breen's Fantastical Jellybeans
 ->Teo_Button
 
 *Jon's Vending Machine Button.
@@ -97,6 +97,94 @@ The packaging seems to sense your rejection and heats up rapidly in your hand un
 ->Vending_Machine_Entrance
 
 ===Teo_Button===
+
+The name "Sir Jerry Breen's Fantastical Jellybeans" is one you are very familiar with. It is one of the most infamous, and exorbitantly expensive candies in the multi-verse. Despite their unreasonable pricing, the jellybeans still see wide use. In fact they are dubbed the "perfect jellybeans".
+
++[Today is a special occasion, you can have some.]
+->HaveSome
+*[On second thought, I'd like to try something else.]
+->Vending_Machine_Entrance
+
+=HaveSome
+Your gaze falls on the green, square button with the iconic figure of "Sir Jerry Breen" appearing to be worn out. Only one last bag of jellybeans sits in the vending machine. You press the button. It feels soft and dampened.
+
+It doesn't seem to work.
++[Press the button again.]
+->PressAgain
+*[Don't bother, it's probably broken.]
+->Vending_Machine_Entrance
+
+=PressAgain
+You press the button. It softly slides back inside, and out...
+
++[Forcefully press the button again.]
+->ForcefullyPressAgain
+*[Give Up.]
+->Vending_Machine_Entrance
+
+=ForcefullyPressAgain
+Unexpectedly... The vending machine responds to your selection with a soulless, automated message sounding from its speaker:
+
+"Sir Jerry Breen's Fantastical Jellybeans are sure to delight you and sure not to disappoint!"
+
+The vending machine clacks and whirs, struggling to push your item in the drop box.
+
+*[Give it a minute.]
+->GiveItAMinute
+*[Give it a good shake (like in the movies).]
+->GiveItAShake
+
+=GiveItAMinute
+Patience is a virtue, you think to yourself.
+*[Wait a bit longer.]
+->Wait
+
+=Wait
+Catching yourself dozing off, you snap back to reality, finding the jellybeans bag in the drop box. 
+
+You enthusiastically pick them up.
+*[Read the item's description.]
+->ReadDescription1
+*[You can't wait. You need to have a jellybean right now.]
+->HaveAJellybean
+
+=GiveItAShake
+Hoping someone watches, you put on a performance. You bump into the vending machine, shaking it, again, and again, until the plastic rustling against the metal and the final thud of the drop cap off the show.
+
+You proudly look around to find out not a soul turned to pay attention. You feel a bit embarrassed, but nonetheless brush it off and pick up the jellybeans bag.
+*[Read the item's description.]
+->ReadDescription1
+*[You can't wait. You need to have a jellybean right now.]
+->HaveAJellybean
+
+
+=ReadDescription1
+The tale of our founder Sir Jerry Breen is well-known across the multi-verse. A tale of an inventor, a saviour, and a peacemaker. His “fantastical” jellybeans united the multi-verse after millennia of war and devastation. Where there was nothing but difference and division, Sir Jerry Breen showed the world that there was much more in common, and where differences remained, his jellybeans more than made up for.
+*[Continue reading.]
+->ReadDescription2
+*[Enough with reading, a jellybean is in order.]
+->HaveAJellybean
+
+=ReadDescription2
+"Sir Jerry Breen's Fantastical Jellybeans" don't have any taste to begin with, but once they come into contact with saliva they perform a rapid, harmless analysis of the organism's genetic make-up. The result? Flavours adapt to your unique preferences, making them truly countless, and colours can range far beyond the visible light spectrum often making them hardly visible to the naked human eye.
+
+Have these jellybeans at your discretion, as once you've tasted perfection, there's no going back.
+*[It's jellybean time!]
+->HaveAJellybean
+
+=HaveAJellybean
+You swiftly tear the bag open in one clean cut.
+
+You gaze inside, and see a sea of shining colour, jellybeans ranging from ruby red, emerald green, diamond blue, golden yellow, even to silvery see-through, colours far beyond your eyes allow you to discern.
+
+You close your eyes and give them a good shuffle. You sink your fingers deep in the bag, and pick out...
+
+A {~Ruby Red|Emerald Green|Diamond Blue|Golden Yellow|Silvery See-through} jellybean!
+
+You playfully toss it in your mouth and chew. The jellybean initially leaves you unimpressed, tasting bland.As you continue chewing, you gradually start to sense a new flavour, one that words can't describe. It's unlike the taste of a fruit, chocolate, or sugary drink. It's a novelty, a flavour unique to you and one that no other has experienced.
+
+You continue chewing and enjoying the jellybean...
+
 ->Vending_Machine_Entrance
 
 ===Jon_Button===
