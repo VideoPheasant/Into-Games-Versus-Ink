@@ -9,7 +9,7 @@
 *Lucy's Vending Machine Button.
 ->Lucy_Button
 
-*Lyra's Vending Machine Button.
++Oobleck Enterprise's Non-Newtonian Nutrition
 ->Lyra_Button
 
 +{not Teo_Button.ForcefullyPressAgain}Sir Jerry Breen's Fantastical Jellybeans
@@ -94,7 +94,100 @@ The packaging seems to sense your rejection and heats up rapidly in your hand un
 ->Vending_Machine_Entrance
 
 ===Lyra_Button===
+The button is slightly sticky to the touch.
+*Press it
+->Sticky_Button
+
++Reconsider your choice
 ->Vending_Machine_Entrance
+
+
+===Sticky_Button===
+- The button yields to your touch - it feels a lot like a poking your fingertips into a pot of homemade slime.
+
+The vending machine's speakers crackle into life.
+
+"Thank you for choosing Oobleck Enterprise's non-Newtonian products - the most efficient way to delight your tastebuds while meeting your base nutritional needs.
+
+Please select an option from our curated selection of exceptionally adequate flavours."
+*Press the green button
+->Green_Button
+
+*Press the red button
+->Red_Button
+
+*Press the grey button
+->Grey_Button
+
+*Try something else
+->Vending_Machine_Entrance
+
+
+===Green_Button===
+- The machine whirs - there's a muffled <i>thud</i> as a small gelatinous cube falls into the open vending slot.
+
+*Pick it up
+->Pick_Green_Cube
+
+*Yeah, no thanks
+->Vending_Machine_Entrance
+
+===Pick_Green_Cube===
+-You pick up the green cube and inspect it. It looks like ordinary jelly, but feels denser. There are small specks of what you assume to be some kind of ground-up leaf suspended inside it.
+
+*Eat the green cube
+->Eat_Green_Cube
+
+*Try something else
+->Vending_Machine_Entrance
+
+===Eat_Green_Cube===
+- It tastes... minty, with a faint floral undertone. It's surprisingly pleasant.
+
+*Try something else
+->Vending_Machine_Entrance
+
+===Red_Button===
+- Something plops unceremoniously into the open vend slot. 
+
+*Pick it up
+->Pick_Red_cube
+
+*Have second thoughts
+->Vending_Machine_Entrance
+
+===Pick_Red_cube===
+- It looks like a cube of ordinary jelly. Its colour evokes synethetic strawberry flavours.
+
+*Eat the red cube
+->Eat_Red_Cube
+
+*Try something else
+->Vending_Machine_Entrance
+
+===Eat_Red_Cube===
+- It takes a moment for you to place the savory, metallic taste. The cube bursts in your mouth, releasing a creamy fondant centre. It's the taste of an extremely rare steak combined with the texture of a soufflé.
+
+Was that... blood flavoured?
+
+*Try something else
+->Vending_Machine_Entrance
+
+===Grey_Button===
+- You pick up what appears to be fine grey powder compressed into a cube. Some of it crumbles away and sticks to your fingertips.
+
+*Eat the grey cube
+->Eat_Grey_Cube
+
+*Decide against it
+->Vending_Machine_Entrance
+
+===Eat_Grey_Cube===
+- It's sweet and delicious, like eating powdered cookies and cream. You're struck by the immediate urge to eat a dozen more of them.
+
+*Try something else
+->Vending_Machine_Entrance
+
 
 ===Teo_Button===
 
