@@ -21,7 +21,7 @@
 *Kyle's Vending Machine Button.
 ->Kyle_Button
 
-*Jenyth's Vending Machine Button.
++{not Jenyth_Button.Pushed}One button... seems to be made of cork.
 ->Jenyth_Button
 
 
@@ -287,10 +287,21 @@ You continue chewing and enjoying the jellybean...
 ->Vending_Machine_Entrance
 
 ===Jenyth_Button===
-<i>You.</i>
-* You believe that the voice in your head is addressing you.
-
-- Why <i>yes</i>, I am. A connisuer such as yourself surely cannot be considering <i>anything</i> else in this machine, aside from the finest batch of <i>Maison de Pomponelle</i> cabernet sauvignon. 
-
-*Look at something else...
+ {On further inspection, it seems like a cork bottlestop has been shoved into a button slot. Perhaps a little unceremoniously.|The cork button is still there. Unexplained.}
+ 
+ * Does it even say anything?
+ ->Read_Button
+ *[{P|Well, maybe now you'll p}ress the button.]
+ -> Pushed
+ *Look at something else...
 -> Vending_Machine_Entrance
+
+ =Read_Button
+It bears a faded ink insignia: <i>MSN de POMP. VINS</i>.
+->Jenyth_Button
+
+ =Pushed
+content
+*choice
+->Vending_Machine_Entrance
+
