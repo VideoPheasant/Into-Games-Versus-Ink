@@ -287,13 +287,20 @@ You continue chewing and enjoying the jellybean...
 ->Vending_Machine_Entrance
 
 ===Jenyth_Button===
+LIST WineTypes = shiraz, chardonnay, merlot
+LIST NotesNoun = citrus, peach, melon, battery, fig, sharpie, cardboard
+~ WineTypes = (shiraz, chardonnay)
+~ NotesNoun = (citrus, peach, melon, battery, fig, sharpie, cardboard)
+
+VAR currentWineType = ""
+ 
  {On further inspection, it seems like a cork bottlestop has been shoved into a button slot. Perhaps a little unceremoniously.|The cork button is still there. Unexplained.}
  
  * Does it even say anything?
  ->Read_Button
- *[{P|Well, maybe now you'll p}ress the button.]
+ *[P{|erhaps now you'll p}ress the button.]
  -> Pushed
- *Look at something else...
+ *[Look at something else...]
 -> Vending_Machine_Entrance
 
  =Read_Button
@@ -301,7 +308,69 @@ It bears a faded ink insignia: <i>MSN de POMP. VINS</i>.
 ->Jenyth_Button
 
  =Pushed
-content
-*choice
+Something clicks, then whirrs within the machine. And then a faint loop of static, before a tinny voice pipes up.
+
+<i>Ah, bonjour, my dear cus-de-mér!</i>
+
+*[Frantically look at the other buttons. Anything but whatever this is.]
+->Vending_Machine_Entrance
+*[Hello?]
+->Intro
+*[Bonjour?]
+    <i>Ahon, mais...</i>
+    ->Intro
+=Intro
+<i>Mais, I digress... bienvenue en le Maison de Pomponville! The home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
+
+*[Remain silent as a sign of assent.]
+->Final_Choice
+*[Remain silent and thoroughly unimpressed.]
+->Final_Choice
+=Final_Choice
+A nervous crackle of laughter, and a few extra clicks. Then, the voice continues.
+
+<i>Well, uh, would you 'ave any vin to ensample?</i>
+
+*[Oui.]
+->Order_Wine
+*[No.]
+->Exit_Button
+*[Non.]
+->Exit_Button
+
+=Order_Wine
+~ currentWineType = "{LIST_RANDOM(WineTypes)}"
+~ WineTypes = currentWineType
+<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.
+
+<i>Now, here is something very special.</i> A pause. <i>A {currentWineType}.</i>
+
+{currentWineType == "merlot" || currentWineType == "shiraz":
+    *[But I don't like red wine.]
+    ->Reorder_Wine
+    - else:
+    *[But I don't like white wine.]
+->Reorder_Wine
+}
+*[You bring the glass to your lips.]
+->Taste_Wine
+
+=Reorder_Wine
+~ currentWineType = "{LIST_RANDOM(WineTypes)}"
+~ WineTypes = currentWineType
+<i>Ah, mais of course!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.
+
+<i>Now, here is something very special.</i> A pause. <i>A {currentWineType}.</i>
+
+*[You bring the glass to your lips.]
+->Taste_Wine
+=Taste_Wine
+Notes of... {LIST_RANDOM(NotesNoun)}.
+
+*[Time to line your stomach with something else.]
+->Exit_Button
+=Exit_Button
+<i>Ah, o-kay, c'est... fine, mais, I do get paid by the number of reviews on our website, so please do-</i>
+
 ->Vending_Machine_Entrance
 
