@@ -19,7 +19,36 @@
 ->Jon_Button
 
 *Kyle's Vending Machine Button.
-->Kyle_Button
+The button glows with a dizzying light not suitable for mortal eyes. Bizarre glyphs flicker in and out of view around the button while the sound of ambient guttural chanting (or is it whispers) can be heard the longer one looks.
+*Listen closely.
+->Listen
+*Push the button.
+->Pushed
+*Don't push the button.
+->Vending_Machine_Entrance
+
+=Listen
+"[Insert a catchy jingle about forbidden knowledge in a tasty bite-sized treat]. Trying to harness long forgotten powers wielded by ancient beings so grand in scale that the very idea of them might cause unsolicited madness? Try <i>incomprehensible word</i>! <i>incomprehensible word</i> packs HUGE flavor and CENTURIES worth of occult wisdom in every bite! No rituals necssary, no tentacles, and no chance of pesky mutations! Try <i>incomprehensible word</i>, it's beyond belief!"
+
+=Pushed
+The vending machine trembles as ancient magic is beckoned, threatening to sunder the skeins of reality and call unspeakable abominations through its dispenser, before it ejects a holographic package decorated with the unassuming black logo of an eye. The stars begin to align at this singular cosmic focal point. You notice a small notch at the upper left side of the foil package beckoning - no, demanding - you cross the precipice of destiny and receive that which only those blessed by the Ancients could ever hope to obtain.
+*Open the package.
+->Opened
+
+=Opened
+A thought stirs within you, suggesting that every moment in your life has led to this. Did you choose the Button, or did the Button choose you? You open the package and empty the contents into the palm of your hand. The singular contents of the package share more in common with a raisin than anything your imagination might have conjured. Well, at least it's not tentacles.
+
+*Eat it.
+->Eaten
+
+=Eaten
+You pop the dried, leathery snack into your mouth and chew, releasing the flavors trapped within. At first, there is the sweetness of an apricot, though the texture feels more like a date. The flavor begins to transform, undergoing some kind of chemical metamorphosis as your taste buds struggle to make sense of what you've introduced them to. Sweet becomes tart becomes...something else entirely. A sensation of etheriality washes over you as you swallow, and the effects of the snack take hold. Your vision softens. Your breathing relaxes. And, at the climax of your mortal form, having tasted the fruit of the gods, you begin to see. The spaces that surround you are merely concepts, and secret passages reveal themselves. Walls become doors and doors become windows into new realms. Euphoria takes hold of you as your perception transcends into a metaphysical state.     
+
+*Don't open the package.
+=Unopened
+
+A sense of overwhelming dread grips you. Maybe it would be better to open this later.
+->Vending_Machine_Entrance
 
 +{not Jenyth_Button.Pushed}One button... seems to be made of cork.
 ->Jenyth_Button
