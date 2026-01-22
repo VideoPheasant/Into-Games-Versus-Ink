@@ -316,14 +316,28 @@ A sense of overwhelming dread grips you. Maybe it would be better to open this l
 ->Vending_Machine_Entrance
 
 ===Jenyth_Button===
-LIST WineTypes = shiraz, chardonnay, merlot
-LIST NotesNoun = citrus, peach, melon, battery, fig, sharpie, cardboard
-~ WineTypes = (shiraz, chardonnay)
-~ NotesNoun = (citrus, peach, melon, battery, fig, sharpie, cardboard)
+VAR correctFrench = 0
+VAR likesWine = true
 
+LIST WineTypes = (red), (white), (orange), (silver)
 VAR currentWineType = ""
+
+LIST RedWineTypes = shiraz, merlot
+LIST WhiteWineTypes = chardonnay, savignonBlanc
+LIST OrangeWineTypes = goûtDeGirofle
+LIST SilverWineTypes = boleau, pinotÉtoilé
+
+LIST NegativeWineNouns = plonk, corked, swill
+VAR previousNegativeWineNoun = ()
+
+LIST NotesNoun = citrus, peach, melon, battery, fig, sharpie, cardboard
+
+//~ RedWineTypes += (shiraz)
+// ~ WineTypes += (red)
+// ~ RedWineTypes = (shiraz, chardonnay)
+// ~ NotesNoun = (citrus, peach, melon, battery, fig, sharpie, cardboard)
  
- {On further inspection, it seems like a cork bottlestop has been shoved into a button slot. Perhaps a little unceremoniously.|The cork button is still there. Unexplained.}
+ {On further inspection, it seems like a cork bottlestop has been shoved into a button slot. Perhaps a little unceremoniously.|The cork button is still there. {not Jenyth_Button.Pushed}Unexplained.}
  
  * Does it even say anything?
  ->Read_Button
@@ -341,16 +355,20 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
 
 <i>Ah, bonjour, my dear cus-de-mér!</i>
 
-*[Frantically look at the other buttons. Anything but whatever this is.]
+*[Look at the other buttons. Anything but whatever this is.]
 ->Vending_Machine_Entrance
 *[Hello?]
 ->Intro
 *[Bonjour?]
-    <i>Ahon, mais...</i>
+    ~ correctFrench++
+    <i>Ahon, you are... fluent!</i> Wherever the voice is coming from, it hesitates for a second. Clears its throat.
     ->Intro
 =Intro
-<i>Mais, I digress... bienvenue en le Maison de Pomponville! The home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
-
+{correctFrench > 0:
+    <i>Mais, I digress... bienvenue en le Maison de Pomponville! The home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
+- else:
+    <i>Alors: bienvenue en le Maison de Pomponville! The home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
+}
 *[Remain silent as a sign of assent.]
 ->Final_Choice
 *[Remain silent and thoroughly unimpressed.]
@@ -368,32 +386,52 @@ A nervous crackle of laughter, and a few extra clicks. Then, the voice continues
 ->Exit_Button
 
 =Order_Wine
-~ currentWineType = "{LIST_RANDOM(WineTypes)}"
-~ WineTypes = currentWineType
-<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.
+// choose a random wine type from the list to be served
+~ currentWineType = LIST_RANDOM(WineTypes)
+~ WineTypes -= currentWineType
+{<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.|Another judder and hum from the machine.}
 
-<i>Now, here is something very special.</i> A pause. <i>A {currentWineType}.</i>
+<i>Now, here is something very special.</i> A pause.
+{
+- currentWineType == red:
+    ~ RedWineTypes = ()
+    ~ RedWineTypes += LIST_RANDOM(LIST_ALL(RedWineTypes))
+    <i>A {RedWineTypes}.</i>
 
-{currentWineType == "merlot" || currentWineType == "shiraz":
-    *[But I don't like red wine.]
-    ->Reorder_Wine
-    - else:
-    *[But I don't like white wine.]
-->Reorder_Wine
+- currentWineType  == white:
+    ~ WhiteWineTypes = ()
+    ~ WhiteWineTypes += LIST_RANDOM(LIST_ALL(WhiteWineTypes))
+    <i>A {WhiteWineTypes}.</i>
+
+- currentWineType == orange:
+    ~ OrangeWineTypes = ()
+    ~ OrangeWineTypes += LIST_RANDOM(LIST_ALL(OrangeWineTypes))
+    <i>A {OrangeWineTypes}.</i>
+
+- currentWineType == silver:
+    ~ SilverWineTypes = ()
+    ~ SilverWineTypes += LIST_RANDOM(LIST_ALL(SilverWineTypes))
+    <i>A {SilverWineTypes}.</i>
+
+- else:
+~ likesWine = false
+The voice has gained a new quality: as if you can hear the sweat running down its brow. <i>Mais, my dear cus-de-mér... we 'ave no other types of wine.</i>
 }
-*[You bring the glass to your lips.]
++{likesWine}[But I don't like {currentWineType} wine.]
+    
+->Reorder_Wine
+*{likesWine}[You bring the glass to your lips.]
 ->Taste_Wine
+
+*{!likesWine}[Maybe you just don't like wine.]
+->Exit_Button
 
 =Reorder_Wine
-~ currentWineType = "{LIST_RANDOM(WineTypes)}"
-~ WineTypes = currentWineType
-<i>Ah, mais of course!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.
+<i>Ah, mais of course!</i> A nervous chortle. <i>Le cus-de-mér is always right. If you please, just throw that, uh...</i> swill<i>, on le floor. Where it belongs.</i>
+-> Order_Wine
 
-<i>Now, here is something very special.</i> A pause. <i>A {currentWineType}.</i>
-
-*[You bring the glass to your lips.]
-->Taste_Wine
 =Taste_Wine
+// ~ previousWineTypes = LIST_ALL(WineTypes)
 Notes of... {LIST_RANDOM(NotesNoun)}.
 
 *[Time to line your stomach with something else.]
