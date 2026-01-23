@@ -317,6 +317,7 @@ A sense of overwhelming dread grips you. Maybe it would be better to open this l
 
 ===Jenyth_Button===
 VAR correctFrench = 0
+VAR incorrectFrench = 0
 VAR likesWine = true
 
 LIST WineTypes = (red), (white), (orange), (silver)
@@ -324,11 +325,12 @@ VAR currentWineType = ""
 
 LIST RedWineTypes = shiraz, merlot
 LIST WhiteWineTypes = chardonnay, savignonBlanc
+
 LIST OrangeWineTypes = goûtDeGirofle
 LIST SilverWineTypes = boleau, pinotÉtoilé
 
 LIST NegativeWineNouns = plonk, corked, swill
-VAR previousNegativeWineNoun = ()
+VAR previousNegativeWineNoun = ""
 
 LIST NotesNoun = citrus, peach, melon, battery, fig, sharpie, cardboard
 
@@ -370,28 +372,28 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
     <i>Alors: bienvenue en le Maison de Pomponville! The home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
 }
 *[Remain silent as a sign of assent.]
-->Final_Choice
+    <i>Ah, I can tell you are a... how you say. Person of great taste!</i> The voice descends into a series of guffaws, and various noises you would imagine someone swilling a glass of wine around in one hand at a dinner party would make.
 *[Remain silent and thoroughly unimpressed.]
-->Final_Choice
-=Final_Choice
-A nervous crackle of laughter, and a few extra clicks. Then, the voice continues.
-
+    A nervous crackle of laughter, and a few extra clicks. Then, the voice continues.
+- 
 <i>Well, uh, would you 'ave any vin to ensample?</i>
 
 *[Oui.]
+~ correctFrench++
 ->Order_Wine
 *[No.]
 ->Exit_Button
 *[Non.]
+~ correctFrench++
 ->Exit_Button
 
 =Order_Wine
 // choose a random wine type from the list to be served
 ~ currentWineType = LIST_RANDOM(WineTypes)
 ~ WineTypes -= currentWineType
-{<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.|Another judder and hum from the machine.}
+{<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.|Another judder and hum from the machine.} {A small hatch on the front opens, revealing a spout not unlike an automatic coffee machine. A scratched |Another} plastic {wine glass falls down from above, and as teeters in place, {currentWineType} wine gushes out of the spout to fill it.| glass precariously drops. But this time, it is filled with some {currentWineType} wine.} 
 
-<i>Now, here is something very special.</i> A pause.
+<i>{Now, here is something|And here, this bev-vér-age is|} very special.</i> A pause.
 {
 - currentWineType == red:
     ~ RedWineTypes = ()
@@ -418,7 +420,8 @@ A nervous crackle of laughter, and a few extra clicks. Then, the voice continues
 The voice has gained a new quality: as if you can hear the sweat running down its brow. <i>Mais, my dear cus-de-mér... we 'ave no other types of wine.</i>
 }
 +{likesWine}[But I don't like {currentWineType} wine.]
-    
+->Reorder_Wine
++{currentWineType == silver || currentWineType == orange}[What even... is {currentWineType}?]
 ->Reorder_Wine
 *{likesWine}[You bring the glass to your lips.]
 ->Taste_Wine
@@ -427,6 +430,7 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 ->Exit_Button
 
 =Reorder_Wine
+
 <i>Ah, mais of course!</i> A nervous chortle. <i>Le cus-de-mér is always right. If you please, just throw that, uh...</i> swill<i>, on le floor. Where it belongs.</i>
 -> Order_Wine
 
