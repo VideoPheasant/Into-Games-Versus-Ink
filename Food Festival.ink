@@ -323,21 +323,19 @@ VAR likesWine = true
 LIST WineTypes = (red), (white), (orange), (silver)
 VAR currentWineType = ""
 
-LIST RedWineTypes = shiraz, merlot
+LIST RedWineTypes = shiraz, merlot, cabernetSauvignon
 LIST WhiteWineTypes = chardonnay, savignonBlanc
 
 LIST OrangeWineTypes = goûtDeGirofle
 LIST SilverWineTypes = boleau, pinotÉtoilé
 
-LIST NegativeWineNouns = plonk, corked, swill
-VAR previousNegativeWineNoun = ""
+LIST NegativeWineNouns = plonk, corkedRubbish, swill
+LIST PositiveWineAdjectives = special, interesting
 
-LIST NotesNoun = citrus, peach, melon, battery, fig, sharpie, cardboard
+LIST NotesNoun = (citrus), (peach), (melon), (battery), (fig), (sharpie), (cardboard), (stardust), (tyre), (horse), (petrol)
+LIST BodyAdjectives = angular, full, flabby, approachable, balanced, crisp, dense, supple, sticky, slick
+LIST FlavourAdjectives = dry, earthy, elegant, herbaceous, jammy, savoury, silky, spicy, tart, unctuous, zesty, peppery
 
-//~ RedWineTypes += (shiraz)
-// ~ WineTypes += (red)
-// ~ RedWineTypes = (shiraz, chardonnay)
-// ~ NotesNoun = (citrus, peach, melon, battery, fig, sharpie, cardboard)
  
  {On further inspection, it seems like a cork bottlestop has been shoved into a button slot. Perhaps a little unceremoniously.|The cork button is still there. {not Jenyth_Button.Pushed}Unexplained.}
  
@@ -365,14 +363,18 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
     ~ correctFrench++
     <i>Ahon, you are... fluent!</i> Wherever the voice is coming from, it hesitates for a second. Clears its throat.
     ->Intro
+    
 =Intro
 {correctFrench > 0:
-    <i>Mais, I digress... bienvenue en le Maison de Pomponville! The home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
+    <i>Mais, I digress... bienvenue en le Maison de Pomponville!</i>
 - else:
-    <i>Alors: bienvenue en le Maison de Pomponville! The home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
+    <i>Alors: bienvenue en le Maison de Pomponville!</i>
 }
+    
+The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i>We are the home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
+
 *[Remain silent as a sign of assent.]
-    <i>Ah, I can tell you are a... how you say. Person of great taste!</i> The voice descends into a series of guffaws, and various noises you would imagine someone swilling a glass of wine around in one hand at a dinner party would make.
+    <i>Ah, I can tell you are a... how you say. Person of great taste!</i> The voice descends into a series of guffaws, noises you can only imagine being made by someone swilling a glass of wine around at a dinner party.
 *[Remain silent and thoroughly unimpressed.]
     A nervous crackle of laughter, and a few extra clicks. Then, the voice continues.
 - 
@@ -388,32 +390,37 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
 ->Exit_Button
 
 =Order_Wine
+
 // choose a random wine type from the list to be served
 ~ currentWineType = LIST_RANDOM(WineTypes)
-~ WineTypes -= currentWineType
-{<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.|Another judder and hum from the machine.} {A small hatch on the front opens, revealing a spout not unlike an automatic coffee machine. A scratched |Another} plastic {wine glass falls down from above, and as teeters in place, {currentWineType} wine gushes out of the spout to fill it.| glass precariously drops. But this time, it is filled with some {currentWineType} wine.} 
+{LIST_COUNT(WineTypes) > 0:
+{<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.|Another judder and hum from the machine.}
 
-<i>{Now, here is something|And here, this bev-vér-age is|} very special.</i> A pause.
+{A small hatch on the front opens, revealing a spout not unlike an automatic coffee machine. A scratched |Another} plastic {wine glass falls down from above, and as teeters in place, {currentWineType} wine gushes out of the spout to fill it.| glass precariously drops. But this time, it is filled with some {currentWineType} wine.} 
+
+<i>{Now, here is something|And here, this bev-vér-age is|I am certain that this time, this will be} very special.</i> A pause.
+}
+~ WineTypes -= currentWineType
 {
 - currentWineType == red:
     ~ RedWineTypes = ()
     ~ RedWineTypes += LIST_RANDOM(LIST_ALL(RedWineTypes))
-    <i>A {RedWineTypes}.</i>
+    <i>A {nameOfRedWine(RedWineTypes)}.</i>
 
 - currentWineType  == white:
     ~ WhiteWineTypes = ()
     ~ WhiteWineTypes += LIST_RANDOM(LIST_ALL(WhiteWineTypes))
-    <i>A {WhiteWineTypes}.</i>
+    <i>A {nameOfWhiteWine(WhiteWineTypes)}.</i>
 
 - currentWineType == orange:
     ~ OrangeWineTypes = ()
     ~ OrangeWineTypes += LIST_RANDOM(LIST_ALL(OrangeWineTypes))
-    <i>A {OrangeWineTypes}.</i>
+    <i>A {nameOfOrangeWine(OrangeWineTypes)}.</i>
 
 - currentWineType == silver:
     ~ SilverWineTypes = ()
     ~ SilverWineTypes += LIST_RANDOM(LIST_ALL(SilverWineTypes))
-    <i>A {SilverWineTypes}.</i>
+    <i>A {nameOfSilverWine(SilverWineTypes)}.</i>
 
 - else:
 ~ likesWine = false
@@ -431,17 +438,58 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 
 =Reorder_Wine
 
-<i>Ah, mais of course!</i> A nervous chortle. <i>Le cus-de-mér is always right. If you please, just throw that, uh...</i> swill<i>, on le floor. Where it belongs.</i>
+<i>{Ah, mais of course!</i> A nervous chortle. <i>Le cus-de-mér is always right. If you please, just throw that, uh...</i>|Je suis</i> so <i>sorry, my dear cus-dé-mer: please, throw that|Once again, I can only apologise: fling that} {nameOfNegativeWineNouns(LIST_RANDOM(LIST_ALL(NegativeWineNouns)))} <i> on le floor. {Where it belongs.</i>|}
 -> Order_Wine
 
 =Taste_Wine
-// ~ previousWineTypes = LIST_ALL(WineTypes)
-Notes of... {LIST_RANDOM(NotesNoun)}.
+VAR firstNoteNoun = ()
+~ firstNoteNoun = LIST_RANDOM(LIST_ALL(NotesNoun))
+
+Hmm... how would you describe this? Notes of... {firstNoteNoun}, and {LIST_RANDOM(LIST_ALL(NotesNoun))}. You might say the body feels {LIST_RANDOM(LIST_ALL(BodyAdjectives))}.
+
+As it sits on your palate, it develops a new flavour. Something {LIST_RANDOM(LIST_ALL(FlavourAdjectives))}. Then, {LIST_RANDOM(LIST_ALL(FlavourAdjectives))}.
+
+<i>Ahhh... my dear cus-de-mér, 'ow are you liking your wine? The tannins, delicious, no?</i>
 
 *[Time to line your stomach with something else.]
 ->Exit_Button
+
 =Exit_Button
-<i>Ah, o-kay, c'est... fine, mais, I do get paid by the number of reviews on our website, so please do-</i>
+The voice seems to sense your eyes drifting to other buttons. <i>Ah, o-kay, c'est... fine, mais, I do get paid by the number of reviews on our website, so please do-</i>
+
+But suddenly, a pop, static, then a click. Silence.
+
+The voice is gone.
 
 ->Vending_Machine_Entrance
 
+=== function nameOfWhiteWine(what)
+{ what:
+    - savignonBlanc: savignon blanc
+    - chardonnay: chardonnay
+}
+
+=== function nameOfRedWine(what)
+{ what:
+    - shiraz: shiraz
+    - merlot: merlot
+    - cabernetSauvignon: cabernet sauvignon
+}
+
+=== function nameOfOrangeWine(what)
+{ what:
+    - goûtDeGirofle: goût de girofle
+}
+
+=== function nameOfSilverWine(what)
+{ what:
+    - boleau: boleau
+    - pinotÉtoilé: pinot étoilé
+}
+
+=== function nameOfNegativeWineNouns(what)
+{ what:
+    - corkedRubbish: corked rubbish
+    - plonk: plonk
+    - swill: swill
+}
