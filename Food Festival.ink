@@ -349,6 +349,11 @@ LIST RegionAdverbs = diligently, cautiously, doggedly, triumphantly
 LIST places = surrey, newKensington, lunarMoon, paradise
 LIST TanninsAdjectives = (chewy), (grippy), (rough), (round), (soft), (structured), (euclidean)
 
+//For now I want the list of adjectives and nouns here to reset every time. I couldn't be bothered putting brackets around every item in the list, so this autopopulates the list with every possible adjective defined within it.
+~ NotesNoun = LIST_ALL(NotesNoun)
+~ TanninsAdjectives = LIST_ALL(TanninsAdjectives)
+~ FlavourAdjectives = LIST_ALL(FlavourAdjectives)
+
 ~ NotesNoun = LIST_ALL(NotesNoun)
  {On further inspection, it seems like a cork bottlestop has been shoved into a button slot. Perhaps a little unceremoniously.|The cork button is still there.} {not Jenyth_Button.Pushed: Unexplained.}
  
@@ -380,11 +385,11 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
     
 =Intro
 {playerCorrectFrench > 0:
-    <i>Mais, I digress... bienvenue en le Maison de Pomponville!</i>
+    <i>Mais, I digress... <>
 - else:
-    <i>Alors: bienvenue en la Maison de Pomponville!</i>
+    <i>Alors: <>
 }
-    
+    bienvenue en la Maison de Pomponville!</i>
 The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i>We are the home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
 
 *[Remain silent as a sign of assent.]
@@ -399,7 +404,7 @@ The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i
         The voice guffaws. <i>Ah, le cus-de-mér may not always be right, non? Maison is most</i> definitely <i>le feminine.</i>
     ** [Do you not mean... <i>bienvenue à</i>? Not <i>bienvenue en</i>?]
         ~ playerCorrectFrench++
-        You hear a metallic buzz and gurgle near the back of machine, like a refridgerator suddenly clearing its throat. <i>Ah... mais that is what I said! Bienvenue </i>à<i> le Maison de Pomponville!</i>
+        You hear a metallic buzz and gurgle near the back of machine, like a refrigerator suddenly clearing its throat. <i>Ah... mais that is what I said! Bienvenue </i>à<i> le Maison de Pomponville!</i>
                 ***[Maybe this isn't worth it.]
                 ***[But <i>maison</i> is feminine. Don't you mean <i>la Maison?]
                     The vending machine jolts. Click, click, click: then the quiet static again. <i>Ah, my dear cus-de-mér, I cannot 'ear you: there is so much... in-tér-fear-ance...</i>
@@ -440,9 +445,9 @@ The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i
 }
 
 {LIST_COUNT(WineColours) > 0:
-{<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The familiar static returns.|Another judder and hum from the machine.}
+{<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The static returns.|Another judder and hum from the machine.}
 
-{A small hatch on the front opens, revealing a spout not unlike an automatic coffee machine. A scratched |Another} plastic {wine glass falls down from above, and as teeters in place, {currentWineColour} wine gushes out of the spout to fill it.| glass precariously drops. But this time, it is filled with some {currentWineColour} wine.} 
+{A small hatch opens, revealing a spout not unlike an automatic coffee machine. A scratched |And another} plastic {wine glass falls down from above, and as teeters in place, {currentWineColour} wine gushes out of the spout to fill it.| glass precariously drops. But this time, it is filled with some {currentWineColour} wine.} 
 
 <i>{Now, here is something|And here, this bev-vér-age is|I am certain that this time, this will be} very special: </i><>
 } 
@@ -539,9 +544,6 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 
 =Taste_Wine
 ~ currentWinesTasted++
-//For now I want the list of adjectives and nouns here to reset every time, but I don't want certain ones to repeat in the same sentence. So, I reset all the lists used here.
-~ NotesNoun = LIST_ALL(NotesNoun)
-~ TanninsAdjectives = LIST_ALL(TanninsAdjectives)
 
 // Later, if I want to make it so that all the adjectives are unique (or at least comment if they are repeated across wines), I can copy the below in order to record whether they have been chosen or not. Then, I can run if statement and check whether the noun is present in the list.
 ~ temp firstNoteNoun = ""
@@ -559,6 +561,14 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 ~ temp secondTanninsAdjective = ""
 ~ secondTanninsAdjective = LIST_RANDOM(TanninsAdjectives)
 ~ TanninsAdjectives -= secondTanninsAdjective
+
+~ temp firstFlavourAdjective = ""
+~ firstFlavourAdjective = LIST_RANDOM(FlavourAdjectives)
+~ FlavourAdjectives -= firstFlavourAdjective
+
+~ temp secondFlavourAdjective = ""
+~ secondFlavourAdjective = LIST_RANDOM(FlavourAdjectives)
+~ FlavourAdjectives -= secondFlavourAdjective
 
 Hmm... how would you describe this? Notes of... {firstNoteNoun}, and {secondNoteNoun}. You might say the body feels {LIST_RANDOM(LIST_ALL(BodyAdjectives))}.
 
