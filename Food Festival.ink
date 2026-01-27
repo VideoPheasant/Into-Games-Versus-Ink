@@ -344,20 +344,24 @@ LIST PositiveWineAdjectives = special, interesting
 LIST NotesNoun = (citrus), (peach), (melon), (battery), (fig), (sharpie), (cardboard), (stardust), (tyre), (horse), (petrol), (ripeBerries), (mocha), (blackPepper)
 LIST BodyAdjectives = angular, full, flabby, approachable, balanced, crisp, dense, supple, sticky, slick
 LIST FlavourAdjectives = dry, earthy, elegant, herbaceous, jammy, savoury, silky, spicy, tart, unctuous, zesty, peppery
+LIST BarrelAdjectives = oak, cedar, birch, cherryWood, mahogany, pine, laminate, clay, sandstone
 LIST RegionDescriptors = desert, ancientForest, swamp, greatPlains
 LIST RegionAdverbs = diligently, cautiously, doggedly, triumphantly
 LIST places = surrey, newKensington, lunarMoon, paradise
 LIST TanninsAdjectives = (chewy), (grippy), (rough), (round), (soft), (structured), (euclidean)
+LIST NumberOfYears = five = 5, ten = 10, fifteen = 15, twenty = 20, notSure, unfathomableNumber
 
-//For now I want the list of adjectives and nouns here to reset every time. I couldn't be bothered putting brackets around every item in the list, so this autopopulates the list with every possible adjective defined within it.
+//For now I want the list of adjectives and nouns here to reset every time. I couldn't be bothered putting brackets around every item in the list, so this autopopulates the list with every possible adjective defined within it when the player first enters the button.
 ~ NotesNoun = LIST_ALL(NotesNoun)
 ~ TanninsAdjectives = LIST_ALL(TanninsAdjectives)
 ~ FlavourAdjectives = LIST_ALL(FlavourAdjectives)
+~ BarrelAdjectives = LIST_ALL(BarrelAdjectives)
+~ NumberOfYears = LIST_ALL(NumberOfYears)
 
 ~ NotesNoun = LIST_ALL(NotesNoun)
- {On further inspection, it seems like a cork bottlestop has been shoved into a button slot. Perhaps a little unceremoniously.|The cork button is still there.} {not Jenyth_Button.Pushed: Unexplained.}
+ {On further inspection, it seems like a cork bottlestop has been shoved into a button slot. |The cork button is still there. {not Jenyth_Button.Pushed: Unexplained.}} 
  
- * Does it even say anything?
+ * [Does it say anything?]
  ->Read_Button
  *[P{|erhaps now you'll p}ress the button.]
  -> Pushed
@@ -375,9 +379,9 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
 
 *[Look at the other buttons. Anything but whatever this is.]
 ->Vending_Machine_Entrance
-*[Hello?]
+*<b>Hello?</b>
 ->Intro
-*[Bonjour?]
+*<b>Bonjour?</b>
     ~ playerCorrectFrench++
     <i>Ahon, a fellow... Français!</i> The voice laughs, but then hesitates for a second, leaving you alone with the static. Then it clears its throat.
     ->Intro
@@ -390,21 +394,21 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
     <i>Alors: <>
 }
     bienvenue en la Maison de Pomponville!</i>
-The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i>We are the home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, we 'ave them all!</i>
+The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i>We are the home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, worlds as of yet undiscovered: we 'ave them all!</i>
 
-*[Remain silent as a sign of assent.]
+*Remain silent as a sign of assent.
     <i>Ah, I can tell you are a... how you say. Person of great taste!</i> The voice descends into a series of guffaws, noises you can only imagine being made by someone swilling a glass of wine around at a dinner party.
-*[Remain silent and thoroughly unimpressed.]
+*Remain silent and thoroughly unimpressed.
     A nervous crackle of laughter, and a few extra clicks. Then, the voice continues.
-*[Hmm... something seems off about the voice's French.]
+*Hmm... something seems off about the voice's French.
     ~ correctedVoicesFrench = true
     You ponder what could be wrong.
     ** [Isn't <i>maison</i> masculine? Don't you mean <i>le maison</i>?]
         ~ playerIncorrectFrench++
         The voice guffaws. <i>Ah, le cus-de-mér may not always be right, non? Maison is most</i> definitely <i>le feminine.</i>
-    ** [Do you not mean... <i>bienvenue à</i>? Not <i>bienvenue en</i>?]
+    ** [Don't you mean... <i>bienvenue à</i>? Not <i>bienvenue en</i>?]
         ~ playerCorrectFrench++
-        You hear a metallic buzz and gurgle near the back of machine, like a refrigerator suddenly clearing its throat. <i>Ah... mais that is what I said! Bienvenue </i>à<i> le Maison de Pomponville!</i>
+        You hear a metallic buzz and gurgle near the back of machine, like a refrigerator suddenly kicked into life. <i>Ah... mais that is what I said! Bienvenue </i>à<i> le Maison de Pomponville!</i>
                 ***[Maybe this isn't worth it.]
                 ***[But <i>maison</i> is feminine. Don't you mean <i>la Maison?]
                     The vending machine jolts. Click, click, click: then the quiet static again. <i>Ah, my dear cus-de-mér, I cannot 'ear you: there is so much... in-tér-fear-ance...</i>
@@ -414,12 +418,14 @@ The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i
 - 
 {correctedVoicesFrench: The voice clears its throat.} <i>Well, uh, would you 'ave any vin to ensample?</i>
 
-*[Oui.]
+*Tu penses oui.
 ~ playerCorrectFrench++
 ->Order_Wine
-*[No.]
+*You think yes.
+->Order_Wine
+* You think not.
 ->Exit_Button
-*[Non.]
+*Tu penses non.
 ~ playerCorrectFrench++
 ->Exit_Button
 
@@ -447,10 +453,10 @@ The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i
 {LIST_COUNT(WineColours) > 0:
 {<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The static returns.|Another judder and hum from the machine.}
 
-{A small hatch opens, revealing a spout not unlike an automatic coffee machine. A scratched |And another} plastic {wine glass falls down from above, and as teeters in place, {currentWineColour} wine gushes out of the spout to fill it.| glass precariously drops. But this time, it is filled with some {currentWineColour} wine.} 
+{A small hatch opens, revealing a spout not unlike an automatic coffee machine. A scratched |And another} plastic {wine glass falls down from above, and as teeters in place, {currentWineColour} wine gushes out of the spout to fill it.| glass precariously drops. This time, {currentWineColour} wine fills it.} 
 
-<i>{Now, here is something|And here, this bev-vér-age is|I am certain that this time, this will be} very special: </i><>
-} 
+<i>{Now, here is something|And here, this bev-vér-age is|I am certain that this time, this will be} very special:
+} </i><>
 {
 - currentWineColour == red && LIST_COUNT(RedWineTypes) > 0:
     ~ currentWineType = LIST_RANDOM(RedWineTypes)
@@ -477,7 +483,7 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 }
 
 {likesWine:
-    <i>Grown {nameOfRegionAdverbs(LIST_RANDOM(LIST_ALL(RegionAdverbs)))} in the {nameOfRegionDescriptors(LIST_RANDOM(LIST_ALL(RegionDescriptors)))} region of {nameOfPlaces(LIST_RANDOM(LIST_ALL(places)))}, this vintage has been aged in [barrels adj] for [number of years or months]. </i>
+    <i>Grown {nameOfRegionAdverbs(LIST_RANDOM(LIST_ALL(RegionAdverbs)))} in the {nameOfRegionDescriptors(LIST_RANDOM(LIST_ALL(RegionDescriptors)))} region of {nameOfPlaces(LIST_RANDOM(LIST_ALL(places)))}, this vintage has been aged in {nameOfBarrelAdjectives(LIST_RANDOM(BarrelAdjectives))} barrels for {nameOfNumberOfYears(LIST_RANDOM(NumberOfYears))} years. </i>
 }
 // [TODO add some logic to change the 'But' to 'On second thoughts' if the player has asked to see different type of same wine colour]
 *{currentWineColour == silver || currentWineColour == orange}[What even... is {currentWineColour} wine?]
@@ -488,27 +494,27 @@ The voice has gained a new quality: as if you can hear the sweat running down it
         <i>I...</i> The voice sounds genuinely perplexed. <i>I thought this dimension had orange wine. Maybe you've just never had any?</i>
     }
     Do you want this glass of wine, or not?
-    ++[No, {currentWineColour} wine sounds weird.]
+    ++No, {currentWineColour} wine sounds weird.
     ~ wantsDifferentWineColour = false
     -> Reorder_Wine
-    ++[No, but you'd try a different type of {currentWineColour} wine.]
+    ++No, but you'd try a different type of {currentWineColour} wine.
     ~ wantsDifferentWineType = true
     -> AskForDifferentWineType
-    ++[Hell yeah, you'll have this {currentWineColour} wine, whatever it is.]
+    ++Hell yeah, you'll have this {currentWineColour} wine, whatever it is.
     <i>Excellent!</i> The voice awaits eagerly as you take a sip.
     -> Taste_Wine
-+{likesWine}{!askedForDifferentTypeOfWine}[But you don't like {currentWineColour} wine.]
++{likesWine}{!askedForDifferentTypeOfWine}But you don't like {currentWineColour} wine.
 ~ wantsDifferentWineColour = true 
 ->Reorder_Wine
-+{likesWine}{askedForDifferentTypeOfWine}[On second thoughts, you don't like {currentWineColour} wine.]
++{likesWine}{askedForDifferentTypeOfWine}On second thoughts, you don't like {currentWineColour} wine.
 ~ wantsDifferentWineColour = true 
 ->Reorder_Wine
-+{likesWine}[Actually... do you have any other types of {currentWineColour} wine?]
++{likesWine}Actually... you would like to try a different type of {currentWineColour} wine.
 ~ wantsDifferentWineType = true
 -> AskForDifferentWineType
-+{likesWine}[You bring the glass to your lips.]
++{likesWine}You bring the glass to your lips.
 ->Taste_Wine
-+{!likesWine}[Maybe you just don't like wine. Time to move on.]
++{!likesWine}Maybe you just don't like wine. Time to move on.
 ->Exit_Button
 
 = AskForDifferentWineType
@@ -516,15 +522,15 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 {
     - (currentWineColour == red && LIST_COUNT(RedWineTypes) > 0) || (currentWineColour == white && LIST_COUNT(WhiteWineTypes) > 0) || (currentWineColour == orange && LIST_COUNT(OrangeWineTypes) > 0) || (currentWineColour == silver && LIST_COUNT(SilverWineTypes) > 0):
         <i>Mais of course!</i>
-        ++ [Excellent.]
+        ++ Excellent.
         -> Reorder_Wine
     - else:
         ~ ranOutOfWineTypes = true
         <i>Ah... oh... oh, non. We 'ave no more types of {currentWineColour}.</i>
-        ++ [A shame. Try something else.]
+        ++ A shame. Try something else.
         -> Reorder_Wine
         
-        ++ [No. You're done with wine.]
+        ++ No. You're done with wine.
         -> Exit_Button
 }
 
@@ -572,35 +578,36 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 
 Hmm... how would you describe this? Notes of... {firstNoteNoun}, and {secondNoteNoun}. You might say the body feels {LIST_RANDOM(LIST_ALL(BodyAdjectives))}.
 
-As it sits on your palate, it develops a new flavour. Something {firstTanninsAdjective}. Then, {secondTanninsAdjective}.
+As it sits on your palate, it develops a new flavour. Something {firstFlavourAdjective}. Then, {secondFlavourAdjective}.
 
 <i>Ahhh... my dear cus-de-mér, 'ow are you liking your wine? The tannins, they are delicious, no?</i>
-*[They feel {firstTanninsAdjective}.]
++[They feel {firstTanninsAdjective}.]
     ->WineVerdict
-*[You would say they're {secondTanninsAdjective}.]
++[You would say they're {secondTanninsAdjective}.]
     ->WineVerdict
     
 =WineVerdict
 <i>Ahh, I see...</i> You hear a pencil scribbling on paper. <i>And... your verdict? Does this wine live up to your expectations?</i>
 
-+[You love it.]
-+[You think, eh.]
-+[You had been waiting this whole time to spit it out.]
++You love it.
++You think, eh.
++You had been waiting this whole time to spit it out.
+    <i>Oh...</i> The voice has the distinct quality of someone looking at something like a squished insect on a dinner plate. <i>Ah, no. I knew we should have provided disposable spitoons as well...</i>
 
-- <>
-{currentWinesTasted < 4:
+-
+{currentWinesTasted < 3:
     <i>So: would you 'ave another?</i>
-    +[Yes, try another wine.]
+    +Yes, try another wine.
     ->Reorder_Wine
-    +[No. Time to line your stomach with something else.]
+    +No. Time to line your stomach with something else.
     ->Exit_Button
 - else:
     <i>My dear cus-de-mér, I would love to offer you another bev-ér-age, mais... the legal limit for this con-trap-tion is three wines.</i>
-    +[You suppress a hiccup. Perhaps it's good you're stopping here.]
+    +You suppress a hiccup. Perhaps it's good you're stopping here.
     ->Exit_Button
-    +[You feel totally fine, but whatever.]
+    +You feel totally fine, but whatever.
     ->Exit_Button
-    +[You could have had <i>twenty</i> more wines: what does this stupid voice know?!]
+    +You could have had <i>twenty</i> more wines: what does this stupid voice know?!
     ->Exit_Button
 }
 =Exit_Button
@@ -673,4 +680,17 @@ The voice is gone.
     - lunarMoon: a tiny lunar moon
     - newKensington: New Kensington
     - else: {where}
+}
+
+=== function nameOfBarrelAdjectives(what)
+{what:
+    - cherryWood: cherry wood
+    - else: {what}
+}
+
+=== function nameOfNumberOfYears(howMany)
+{howMany:
+    - notSure: ...</i> The voice pauses. <i>Actually, I'm not sure for how many
+    - unfathomableNumber: an unfathomable number of
+    - else: {howMany}
 }
