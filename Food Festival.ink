@@ -69,8 +69,8 @@ It swims sarcastically in your mind. It's an invitation to The Fare. It doesn't 
 *Jon's Vending Machine Button.
 ->Jon_Button
 
-*Kyle's Vending Machine Button.
-->Kyle_Button
++{not Incomprehensible_Word.Pushed}Incomprehensible Word.
+->Incomprehensible_Word
 
 +{not Jenyth_Button.Pushed}One button... seems to be made of cork.
 ->Jenyth_Button
@@ -334,8 +334,8 @@ You continue chewing and enjoying the jellybean...
 ===Jon_Button===
 ->Vending_Machine_Entrance
 
-===Kyle_Button===
-The button glows with a dizzying light not suitable for mortal eyes. Bizarre glyphs flicker in and out of view around the button while the sound of ambient guttural chanting (or is it whispers) can be heard the longer one looks.
+===Incomprehensible_Word===
+{The button glows with a dizzying light not suitable for mortal eyes. Bizarre glyphs flicker in and out of view around the button while the sound of ambient guttural chanting (or is it whispering?) can be heard the longer one looks. | The button waits, eager for you to take action.}
 *Listen closely.
 ->Listen
 *Push the button.
@@ -344,26 +344,58 @@ The button glows with a dizzying light not suitable for mortal eyes. Bizarre gly
 ->Vending_Machine_Entrance
 
 =Listen
-"[Insert a catchy jingle about forbidden knowledge in a tasty bite-sized treat]. Trying to harness long forgotten powers wielded by ancient beings so grand in scale that the very idea of them might cause unsolicited madness? Try <i>incomprehensible word</i>! <i>incomprehensible word</i> packs HUGE flavor and CENTURIES worth of occult wisdom in every bite! No rituals necssary, no tentacles, and no chance of pesky mutations! Try <i>incomprehensible word</i>, it's beyond belief!"
+The whispering chants (or chanting whispers?) gain clarity as you hear a voice that is annoyingly far away and yet somehow right at the back of your head say "Trying to harness long forgotten powers wielded by ancient beings so grand in scale that the very idea of them might cause unsolicited madness? Try <i>Incomprehensible Word</i>!" 
+
+<i>Incomprehensible Word</i> packs HUGE flavor and CENTURIES worth of occult wisdom in every bite! No rituals necessary, no tentacles, and no chance of pesky mutations! Try <i>Incomprehensible Word</i>, it's incomprehensible!"
+
+->Incomprehensible_Word
 
 =Pushed
-The vending machine trembles as ancient magic is beckoned, threatening to sunder the skeins of reality and call unspeakable abominations through its dispenser, before it ejects a holographic package decorated with the unassuming black logo of an eye. The stars begin to align at this singular cosmic focal point. You notice a small notch at the upper left side of the foil package beckoning - no, demanding - you cross the precipice of destiny and receive that which only those blessed by the Ancients could ever hope to obtain.
+The vending machine trembles as ancient magic is beckoned, threatening to sunder the skeins of reality and call unspeakable abominations through its dispenser, before it ejects a holographic package decorated with the unassuming black logo of an open eye.
+
+*Inspect the package
+->Inspected
+
+=Inspected
+You notice a small notch at the upper left side of the foil package beckoning - no, demanding - you cross the precipice of destiny and receive that which only those blessed by the Ancients could ever hope to obtain.
+
 *Open the package.
 ->Opened
 
+*Don't open the package.
+A sense of overwhelming dread grips you. Maybe you should open this later.
+->Vending_Machine_Entrance
+
 =Opened
-A thought stirs within you, suggesting that every moment in your life has led to this. Did you choose the Button, or did the Button choose you? You open the package and empty the contents into the palm of your hand. The singular contents of the package share more in common with a raisin than anything your imagination might have conjured. Well, at least it's not tentacles.
+The stars begin to align at this singular cosmic focal point.
+
+A thought stirs within you, suggesting that every moment in your life has led to this. Did you choose the Button, or did the Button choose you? 
+
+You open the package and empty the contents into the palm of your hand. Perhaps more startling than any multi-limbed, ooze-covered, thousand-eyed abomination that <i>could</i> have manifested from the package, you are met with the frankly disappointing shape of a raisin.
+
+...well, at least it's not tentacles.
 
 *Eat it.
 ->Eaten
 
 =Eaten
-You pop the dried, leathery snack into your mouth and chew, releasing the flavors trapped within. At first, there is the sweetness of an apricot, though the texture feels more like a date. The flavor begins to transform, undergoing some kind of chemical metamorphosis as your taste buds struggle to make sense of what you've introduced them to. Sweet becomes tart becomes...something else entirely. A sensation of etheriality washes over you as you swallow, and the effects of the snack take hold. Your vision softens. Your breathing relaxes. And, at the climax of your mortal form, having tasted the fruit of the gods, you begin to see. The spaces that surround you are merely concepts, and secret passages reveal themselves. Walls become doors and doors become windows into new realms. Euphoria takes hold of you as your perception transcends into a metaphysical state.     
+You pop the dried, leathery snack into your mouth and chew, releasing the flavors trapped within. At first, there is the sweetness of an apricot, though the texture feels more like a date. But...
 
-*Don't open the package.
-=Unopened
-A sense of overwhelming dread grips you. Maybe it would be better to open this later.
+*What's this?
+->whatitis
 
+=whatitis
+The flavor begins to transform, undergoing some chemical metamorphosis as your taste buds struggle to make sense of what you've introduced them to. Sweet becomes tart becomes... something else entirely. 
+
+*Taste the non-Euclidean rainbow
+->NonEuRainbow
+
+=NonEuRainbow
+A sensation of etheriality washes over you as you swallow, and the effects of the snack take hold. 
+Your vision softens. Your breathing relaxes. And, at the climax of your mortal form having tasted the fruit of the gods, you begin to <b>see</b>.
+ New pathways reveal themselves as walls become doors and doors become windows into new realms. Euphoria takes hold of you as your perception transcends into a metaphysical state.
+ 
+ Your snack apotheosis is complete.
 ->Vending_Machine_Entrance
 
 ===Jenyth_Button===
