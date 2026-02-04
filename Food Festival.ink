@@ -142,7 +142,38 @@ The packaging seems to sense your rejection and heats up rapidly in your hand un
 
 
 ===Lucy_Button===
+Thank you for pressing this button - we guarantee we have products that will always leave you wanting more!
+
+Please choose one of the following options:
+*Drink
+->Drink
+
+*Food
+->Food
+
+==Drink==
+A tiny bottle rolls out the size of half your middle finger. 
+
+The label reads: "Dangerous substance - might not be drinkable".
+*Drink the substance
+The bottle is so small that there surely couldn't be any lasting damage, right?
+
+After drinking the substance, you immediately feel nauseous and on edge and yet... something deep within leaves you craving more.
 ->Vending_Machine_Entrance
+
+*Pour the substance away
+Not taking any chances, you pour the substance away. It looks gloopy.
+->Vending_Machine_Entrance
+
+==Food==
+Something rolls out - a cake, you realise, the size of a single pea.
+*Eat the cake
+
+The cake is delicious.
+
+The size leaves you feeling entirely unsatisfied.
+->Vending_Machine_Entrance
+
 
 ===Lyra_Button===
 The button is slightly sticky to the touch.
