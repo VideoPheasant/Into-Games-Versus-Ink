@@ -1,3 +1,5 @@
+VAR VendingMachineInteraction = 0
+
 ->Vending_Machine_Intro
 =Vending_Machine_Intro
 
@@ -119,7 +121,7 @@ The packaging is almost entirely disclaimer text printed on an image of Tilly Si
 ->Eaten
 
 =Eaten
-
+~ VendingMachineInteraction = VendingMachineInteraction +1
 The slices themselves are light brown unassuming discs that remind you of dried apricot. You drop one onto the palm of your hand to examine it, and almost immediately your hand begins to tingle. The spice is on your skin and it's a little bit much. You instinctively pop the slice in your mouth.
 
 It tastes incredible. It's savoury. It's complex. It's sweet but also mature. It's earthy but also refreshing. It's... Oh here comes the spice. No. No. It's too spicy. It's just a little bit too spicy to enjoy it really.
