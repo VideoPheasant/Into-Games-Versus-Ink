@@ -178,8 +178,8 @@ The size leaves you feeling entirely unsatisfied.
 
 
 ===Lyra_Button===
-The button is slightly sticky to the touch.
-*Press it
+{The button is slightly sticky to the touch.|You're still hungry for cubes...}
++Press it
 ->Sticky_Button
 
 +Reconsider your choice
@@ -187,20 +187,20 @@ The button is slightly sticky to the touch.
 
 
 ===Sticky_Button===
-- The button yields to your touch - it feels a lot like a poking your fingertips into a pot of homemade slime.
+{The button yields to your touch - it feels a lot like a poking your fingertips into a pot of homemade slime.|}
 
 The vending machine's speakers crackle into life.
 
 "Thank you for choosing Oobleck Enterprise's non-Newtonian products - the most efficient way to delight your tastebuds while meeting your base nutritional needs.
 
 Please select an option from our curated selection of exceptionally adequate flavours."
-*Press the green button
++Press the green button
 ->Green_Button
 
-*Press the red button
++Press the red button
 ->Red_Button
 
-*Press the grey button
++Press the grey button
 ->Grey_Button
 
 *Try something else
@@ -208,70 +208,168 @@ Please select an option from our curated selection of exceptionally adequate fla
 
 
 ===Green_Button===
-- The machine whirs - there's a muffled <i>thud</i> as a small gelatinous cube falls into the open vending slot.
+The machine whirs - there's a muffled <i>thud</i> as a small gelatinous cube falls into the open vending slot.
 
-*Pick it up
++Pick it up
 ->Pick_Green_Cube
 
 *Yeah, no thanks
 ->Vending_Machine_Entrance
 
 ===Pick_Green_Cube===
--You pick up the green cube and inspect it. It looks like ordinary jelly, but feels denser. There are small specks of what you assume to be some kind of ground-up leaf suspended inside it.
+{You pick up the green cube and inspect it. It looks like ordinary jelly, but feels denser. There are small specks of what you assume to be some kind of ground-up leaf suspended inside it.|You pick up the leaf-filled cube.}
 
-*Eat the green cube
++Eat the green cube
 ->Eat_Green_Cube
 
 *Try something else
 ->Vending_Machine_Entrance
 
 ===Eat_Green_Cube===
-- It tastes... minty, with a faint floral undertone. It's surprisingly pleasant.
+{It tastes... minty, with a faint floral undertone. It's surprisingly pleasant.|You're still not entirely convinced by the texture, but your mouth feels a little fresher.}
 
-*Try something else
++Try something else
 ->Vending_Machine_Entrance
 
 ===Red_Button===
-- Something plops unceremoniously into the open vend slot. 
+{Something plops unceremoniously into the open vend slot.|Another red cube plops unceremoniously into the open vend slot.} 
 
-*Pick it up
++Pick it up
 ->Pick_Red_cube
 
 *Have second thoughts
 ->Vending_Machine_Entrance
 
 ===Pick_Red_cube===
-- It looks like a cube of ordinary jelly. Its colour evokes synethetic strawberry flavours.
+It looks like a cube of ordinary jelly. Its colour evokes synethetic strawberry flavours.
 
-*Eat the red cube
++Eat the red cube
 ->Eat_Red_Cube
 
 *Try something else
 ->Vending_Machine_Entrance
 
 ===Eat_Red_Cube===
-- It takes a moment for you to place the savory, metallic taste. The cube bursts in your mouth, releasing a creamy fondant centre. It's the taste of an extremely rare steak combined with the texture of a soufflé.
+{It takes a moment for you to place the savory, metallic taste. The cube bursts in your mouth, releasing a creamy fondant centre. It's the taste of an extremely rare steak combined with the texture of a soufflé.|Yeah, it's definitely blood flavoured - but perhaps you're developing a taste for it?}
 
-Was that... blood flavoured?
+{Was that... blood flavoured?|}
 
-*Try something else
++Try something else
 ->Vending_Machine_Entrance
 
 ===Grey_Button===
-- You pick up what appears to be fine grey powder compressed into a cube. Some of it crumbles away and sticks to your fingertips.
+{GreyCubesEaten == 3:The machine whirs, but nothing comes out.->GreyCubesOut}
+{GreyCubesEaten == 0-2:What appears to be a clump of grey dust falls into the open vend slot.|Another grey cube appears in the open vend slot.} 
 
-*Eat the grey cube
++Pick it up
+->Pick_Grey_Cube
+
+*Have second thoughts
+->Vending_Machine_Entrance
+
+===Pick_Grey_Cube===
+{You pick up what appears to be fine grey powder compressed into a cube around a soft centre. Some of the powder crumbles away and sticks to your fingertips.|You feel yourself begin to salivate at the memory of grey powder's sweet flavour.}
+
++Eat the grey cube
 ->Eat_Grey_Cube
 
 *Decide against it
 ->Vending_Machine_Entrance
 
 ===Eat_Grey_Cube===
-- It's sweet and delicious, like eating powdered cookies and cream. You're struck by the immediate urge to eat a dozen more of them.
+~GreyCubesEaten = GreyCubesEaten + 1
+It's sweet and delicious, like eating powdered cookies and cream. {You're struck by the immediate urge to eat a dozen more of them.|Your urge for more intensifies.}
 
-*Try something else
++Try something else
 ->Vending_Machine_Entrance
 
+===GreyCubesOut===
+You press the button again in the hope that you simply didn't press it hard enough last time. 
+
+Nothing happens.
+
+*Press harder.
+->2ndOutPress
+
+===2ndOutPress===
+Still nothing.
+
+*Give up.
+->GreyCubeGiveUp
+
+*Press the button repeatedly until the machine responds.
+->3rdOutPress
+
+===3rdOutPress===
+The machine makes an ominous clanking sound.
+
+*Back away slowly.
+->BackAway
+
+*Lean in closer.
+->LeanCloser
+
+===BackAway===
+As you take a few tentative steps away from the machine you notice a split in its surface begin to open.
+
+->CubeVendorAppearance
+
+===LeanCloser===
+As you lean closer a metal panel in the machine's surface swings open, narrowly missing the tip of your nose.
+
+->CubeVendorAppearance
+
+===CubeVendorAppearance===
+The hatch opens fully to reveal a small... creature? It's vaguelly humanoid in shape with a small cuboid body and four ropy limbs. You're not sure where its face is, but the tension in its squishy body gives you the impression that it's annoyed.
+
+The only indication that it has a head is the chef's hat perched on one of its corners.
+
+"No more cubes for you!" it says in in a thin, nasal voice. "We're out of the grey flavour for the day. Come back tomorrow."
+
+It reaches for the hatch, as though about to slam it closed again.
+
+*Grab the hatch before it can close it.
+->GrabHatch
+
+*Panic. You need your cube fix.
+->Panic
+
+*Do nothing.
+->DidNothing
+
+===GrabHatch===
+You catch the hatch as it closes. The creature makes a disgruntled noise.
+
+"Didn't you hear me? We don't have any more."
+
+->InteractedWithCubeVendor
+
+===Panic===
+Your palms begin to sweat - your stomach feels empty and hollow. You need more cubes.
+
+->InteractedWithCubeVendor
+
+===InteractedWithCubeVendor===
+"Come. Back. Later," the creature says, with patronising clarity.
+
+**"But I need more cubes!"
+"No. No more."
+***Where can I get some?"
+The creature sighs. It whipes what might be its forehead with one boneless appendage.
+"[Go to the interdemensional food festival]"
+
+[redirect to food fest]
+->Vending_Machine_Entrance
+
+===DidNothing===
+The hatch slams closed. You're not sure what you just saw. 
+
+->Vending_Machine_Entrance
+
+===GreyCubeGiveUp===
+You're sweating a little, but willing to accept defeat.
+
+->Vending_Machine_Entrance
 
 ===Teo_Button===
 
