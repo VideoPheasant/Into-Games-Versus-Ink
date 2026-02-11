@@ -178,6 +178,7 @@ The size leaves you feeling entirely unsatisfied.
 
 
 ===Lyra_Button===
+VAR GreyCubesEaten = 0
 {The button is slightly sticky to the touch.|You're still hungry for cubes...}
 +Press it
 ->Sticky_Button
