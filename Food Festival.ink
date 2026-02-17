@@ -54,7 +54,18 @@ It swims sarcastically in your mind. It's an invitation to The Fare. It doesn't 
 ->Vending_Machine_Entrance
 ===Vending_Machine_Entrance===
 
-{The buttons and products lack the gravitas and romance you were expecting. A test, maybe?|The vending machine waits hungrily for you to make another selection. Go on. Treat yourself. Open yourself up to new experiences.}
+{VendingMachineInteraction == 3:
+    3 Interactions, and probably a direct on to the next part of the game.
+  - else:{VendingMachineInteraction == 2:
+  2 interactions.
+  - else:{VendingMachineInteraction == 1:
+  1 interaction.
+  - else:
+    {The buttons and products lack the gravitas and romance you were expecting. A test, maybe?|The vending machine waits hungrily for you to make another selection. Go on. Treat yourself. Open yourself up to new experiences.}
+}
+    }
+        }
+
 
 +{not Thomas_Button.Pushed}Sister Tilly Sizzle's Slightly Too Spicy Slices!
 ->Thomas_Button
