@@ -74,7 +74,7 @@ It swims sarcastically in your mind. It's an invitation to The Fare. It doesn't 
 +{not Incomprehensible_Word.Pushed}Incomprehensible Word.
 ->Incomprehensible_Word
 
-+{not Jenyth_Button.Pushed}One button... seems to be made of cork.
++{not Jenyth_Button.Pushed}<i>MSN de POMP. VINS.</i>
 ->Jenyth_Button
 
 
@@ -574,17 +574,17 @@ LIST NumberOfYears = five = 5, ten = 10, fifteen = 15, twenty = 20, notSure, unf
 ~ NumberOfYears = LIST_ALL(NumberOfYears)
 ~ NotesNoun = LIST_ALL(NotesNoun)
 
- {On further inspection, it seems like a cork bottlestop has been shoved into a button slot. |The cork button is still there. {not Jenyth_Button.Pushed: Unexplained.}} 
+ {At least, that is what this button reads. It seems like a cork bottlestop has been shoved into an otherwise normal button slot. |The cork button is still there. Waiting.} 
  
- * [Does it say anything?]
+ * [Inspect the button further.]
  ->Read_Button
  *[P{|erhaps now you'll p}ress the button.]
  -> Pushed
- *[Look at something else...]
+ *[Look at something else.]
 -> Vending_Machine_Entrance
 
  =Read_Button
-It bears a faded ink insignia: <i>MSN de POMP. VINS</i>.
+It bears a faded ink insignia: a bunch of grapes, heavy on the vine. Its leaves twist and curl untidily around it.
 ->Jenyth_Button
 
  =Pushed
@@ -601,7 +601,6 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
     <i>Ahon, a fellow... Français!</i> The voice laughs, but then hesitates for a second, leaving you alone with the static. Then it clears its throat.
     ->Intro
     
-    
 =Intro
 {playerCorrectFrench > 0:
     <i>Mais, I digress... <>
@@ -612,7 +611,7 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
 The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i>We are the home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, worlds as of yet undiscovered: we 'ave them all!</i>
 
 *Remain silent as a sign of assent.
-    <i>Ah, I can tell you are a... how you say. Person of great taste!</i> The voice descends into a series of guffaws, noises you can only imagine being made by someone swilling a glass of wine around at a dinner party.
+    <i>Ah, I can tell you are a... how you say. Person of great taste!</i> The voice descends into a series of guffaws, noises you can only imagine being made by someone swilling wine around a glass at a dinner party.
 *Remain silent and thoroughly unimpressed.
     A nervous crackle of laughter, and a few extra clicks. Then, the voice continues.
 *Hmm... something seems off about the voice's French.
@@ -831,6 +830,7 @@ As it sits on your palate, it develops a new flavour. Something {firstFlavourAdj
     ->Exit_Button
 }
 =Exit_Button
+~ VendingMachineInteraction++
 {
 - voiceKickedPlayerOut == true:
     <i>Non... ah non...</i> You hear a chair creak, as if the voice is leaning away from the microphone. <i>Non, je ne able pas to 'ear you... goodbye, my dear cus-de-mér...</i>
