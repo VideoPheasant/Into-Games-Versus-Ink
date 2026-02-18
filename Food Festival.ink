@@ -1,6 +1,6 @@
 VAR VendingMachineInteraction = 0
 
-->Vending_Machine_Intro
+->Vending_Machine_Entrance
 =Vending_Machine_Intro
 
 Everyone remembers the first time they tasted The Fare. For you, your first true meal was<>
@@ -573,7 +573,7 @@ LIST FlavourAdjectives = dry, earthy, elegant, herbaceous, jammy, savoury, silky
 LIST BarrelAdjectives = oak, cedar, birch, cherryWood, mahogany, pine, laminate, clay, sandstone
 LIST RegionDescriptors = desert, ancientForest, swamp, greatPlains
 LIST RegionAdverbs = diligently, cautiously, doggedly, triumphantly
-LIST places = surrey, newKensington, lunarMoon, paradise, cave
+LIST places = surrey, newKensington, moon, paradise, cave
 LIST TanninsAdjectives = chewy, grippy, rough, round, soft, structured, euclidean
 LIST NumberOfYears = five = 5, ten = 10, fifteen = 15, twenty = 20, notSure, unfathomableNumber
 
@@ -605,9 +605,9 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
 
 *[Look at the other buttons. Anything but whatever this is.]
 ->Vending_Machine_Entrance
-*You reply with, <b>Hello?</b>
+*[Reply with, <b>Hello?</b>]You reply with, <b>Hello?</b>
 ->Intro
-*You reply with, <b>Bonjour?</b>
+*[Reply with, <b>Bonjour?</b>]You reply with, <b>Bonjour?</b>
     ~ playerCorrectFrench++
     <i>Ahon, a fellow... Français!</i> The voice laughs, but then hesitates for a second, leaving you alone with the static. Then it clears its throat.
     ->Intro
@@ -621,9 +621,9 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
     bienvenue en la Maison de Pomponville!</i>
 The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i>We are the home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, worlds as of yet undiscovered: we 'ave them all!</i>
 
-*Remain silent as a sign of assent.
+*[Remain silent as a sign of assent.] You wait, patiently, for the machine to continue. You're listening.
     <i>Ah, I can tell you are a... how you say. Person of great taste!</i> The voice descends into a series of guffaws, noises you can only imagine being made by someone swilling wine around a glass at a dinner party.
-*Remain silent and thoroughly unimpressed.
+*[Remain silent and thoroughly unimpressed.] You allow your silence to flow forth towards the machine.
     A nervous crackle of laughter, and a few extra clicks. Then, the voice continues.
 *Hmm... something seems off about the voice's French.
     ~ correctedVoicesFrench = true
@@ -686,29 +686,29 @@ The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i
 - currentWineColour == red && LIST_COUNT(RedWineTypes) > 0:
     ~ currentWineType = LIST_RANDOM(RedWineTypes)
     ~ RedWineTypes -= currentWineType
-    <i>a {nameOfRedWine(currentWineType)}.</i> <>
+    <i>a {nameOfThing(currentWineType)}.</i> <>
 
 - currentWineColour  == white && LIST_COUNT(WhiteWineTypes) > 0:
     ~ currentWineType = LIST_RANDOM(WhiteWineTypes)
     ~ WhiteWineTypes -= currentWineType
-    <i>a {nameOfWhiteWine(currentWineType)}.</i> <>
+    <i>a {nameOfThing(currentWineType)}.</i> <>
 
 - currentWineColour == orange && LIST_COUNT(OrangeWineTypes) > 0:
     ~ currentWineType = LIST_RANDOM(OrangeWineTypes)
     ~ OrangeWineTypes -= currentWineType
-    <i>a {nameOfOrangeWine(currentWineType)}.</i> <>
+    <i>a {nameOfThing(currentWineType)}.</i> <>
 
 - currentWineColour == silver && LIST_COUNT(SilverWineTypes) > 0:
     ~ currentWineType = LIST_RANDOM(SilverWineTypes)
     ~ SilverWineTypes -= currentWineType
-    <i>a {nameOfSilverWine(currentWineType)}.</i> <>
+    <i>a {nameOfThing(currentWineType)}.</i> <>
 - else:
 ~ likesWine = false
 The voice has gained a new quality: as if you can hear the sweat running down its brow. <i>Mais, my dear cus-de-mér... we 'ave no other types of wine.</i>
 }
 
 {likesWine:
-    <i>Grown {nameOfRegionAdverbs(LIST_RANDOM(LIST_ALL(RegionAdverbs)))} in the {nameOfRegionDescriptors(LIST_RANDOM(LIST_ALL(RegionDescriptors)))} region of {nameOfPlaces(LIST_RANDOM(LIST_ALL(places)))}, this vintage has been aged in {nameOfBarrelAdjectives(LIST_RANDOM(BarrelAdjectives))} barrels for {nameOfNumberOfYears(LIST_RANDOM(NumberOfYears))} years. </i>
+    <i>Grown {nameOfThing(LIST_RANDOM(LIST_ALL(RegionAdverbs)))} in the {nameOfThing(LIST_RANDOM(LIST_ALL(RegionDescriptors)))} region of {nameOfThing(LIST_RANDOM(LIST_ALL(places)))}, this vintage has been aged in {nameOfThing(LIST_RANDOM(BarrelAdjectives))} barrels for {nameOfThing(LIST_RANDOM(NumberOfYears))} years. </i>
 }
 
 *{currentWineColour == silver || currentWineColour == orange}[What even... is {currentWineColour} wine?]
@@ -728,6 +728,8 @@ The voice has gained a new quality: as if you can hear the sweat running down it
     ++Hell yeah, you'll have this {currentWineColour} wine, whatever it is.
     <i>Excellent!</i> The voice awaits eagerly as you take a sip.
     -> Taste_Wine
++{likesWine}You bring the glass to your lips.
+->Taste_Wine
 +{likesWine}{!askedForDifferentTypeOfWine}But you don't like {currentWineColour} wine.
 ~ wantsDifferentWineColour = true 
 ->Reorder_Wine
@@ -737,8 +739,6 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 +{likesWine}Actually... you would like to try a different type of {currentWineColour} wine.
 ~ wantsDifferentWineType = true
 -> AskForDifferentWineType
-+{likesWine}You bring the glass to your lips.
-->Taste_Wine
 +{!likesWine}Maybe you just don't like wine. Time to move on.
 ->Exit_Button
 
@@ -764,7 +764,7 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 
 {
     - wantsDifferentWineColour == true:
-    {A nervous chortle. <i>Le cus-de-mér is always right. If you please, just throw that, uh...</i>|Je suis</i> so <i>sorry, my dear cus-dé-mer: please, throw that|Once again, I can only apologise: fling that} {nameOfNegativeWineNouns(LIST_RANDOM(LIST_ALL(NegativeWineNouns)))} <i> on le floor. {Where it belongs.</i>|}
+    {A nervous chortle. <i>Le cus-de-mér is always right. If you please, just throw that, uh...</i>|Je suis</i> so <i>sorry, my dear cus-dé-mer: please, throw that|Once again, I can only apologise: fling that} {nameOfThing(LIST_RANDOM(LIST_ALL(NegativeWineNouns)))} <i> on le floor. {Where it belongs.</i>|}
     - wantsDifferentWineType == false:
         <i>Ah, mais of course!</i>
     - ranOutOfWineTypes == true:
@@ -801,7 +801,7 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 ~ secondFlavourAdjective = LIST_RANDOM(FlavourAdjectives)
 ~ FlavourAdjectives -= secondFlavourAdjective
 
-Hmm... how would you describe this? Notes of... {nameOfNotesNoun(firstNoteNoun)}, and {nameOfNotesNoun(secondNoteNoun)}. You might say the body feels {LIST_RANDOM(LIST_ALL(BodyAdjectives))}.
+Hmm... how would you describe this? Notes of... {nameOfThing(firstNoteNoun)}, and {nameOfThing(secondNoteNoun)}. You might say the body feels {LIST_RANDOM(LIST_ALL(BodyAdjectives))}.
 
 As it sits on your palate, it develops a new flavour. Something {firstFlavourAdjective}. Then, {secondFlavourAdjective}.
 
@@ -827,7 +827,7 @@ As it sits on your palate, it develops a new flavour. Something {firstFlavourAdj
 -
 {currentWinesTasted < 3:
     <i>So...</i> The voice is back to its soft, but business-like tone. <i>Would you 'ave another?</i>
-    +Yes, try another wine.
+    +[Yes, try another wine.] You nod assent. And somehow, the voice sees you.
     ->Reorder_Wine
     +No. Time to line your stomach with something else.
     ->Exit_Button
@@ -858,75 +858,25 @@ The voice is gone.
 
 ->Vending_Machine_Entrance
 
-=== function nameOfWhiteWine(what)
+=== function nameOfThing(what)
 { what:
     - savignonBlanc: savignon blanc
-    - else: {what}
-}
-
-=== function nameOfRedWine(what)
-{ what:
-    - cabernetSauvignon: cabernet sauvignon
-    - else: {what}
-}
-
-=== function nameOfOrangeWine(what)
-{ what:
-    - goûtDeGirofle: goût de girofle
-}
-
-=== function nameOfSilverWine(what)
-{ what:
-    // - boleau: boleau
-    - pinotÉtoilé: pinot étoilé
-    - else: {what}
-}
-
-=== function nameOfNegativeWineNouns(what)
-{ what:
-    - corkedRubbish: corked rubbish
-    - rotgut: rot gut
-    - else: {what}
-}
-
-=== function nameOfRegionAdverbs(what)
-{ what:
-    - ancientForest: ancientForest
-    - greatPlains: greatPlains
-    - else: {what}
-}
-
-=== function nameOfRegionDescriptors(what)
-{what:
     - ancientForest: ancient forest
     - greatPlains: great plains
-    - else: {what}
-}
-
-=== function nameOfPlaces(where)
-{where:
+    - cabernetSauvignon: cabernet sauvignon
+    - goûtDeGirofle: goût de girofle
+    - pinotÉtoilé: pinot étoilé
+    - corkedRubbish: corked rubbish
+    - rotgut: rot gut
+    - ancientForest: ancientForest
+    - greatPlains: great plains
     - surrey: Surrey
-    - lunarMoon: a tiny lunar moon
+    - moon: a tiny lunar satellite
     - newKensington: New Kensington
     - cave: the Umberhills, where the under-grapes thrive among the stalactites
-    - else: {where}
-}
-
-=== function nameOfBarrelAdjectives(what)
-{what:
     - cherryWood: cherry wood
-    - else: {what}
-}
-
-=== function nameOfNumberOfYears(howMany)
-{howMany:
     - notSure: ...</i> The voice pauses. <i>Actually, I'm not sure for how many
     - unfathomableNumber: an unfathomable number of
-    - else: {howMany}
-}
-
-=== function nameOfNotesNoun(what)
-{what:
     - blackPepper: black pepper
     - ripeBerries: ripe berries
     - horseSweat: horse sweat
