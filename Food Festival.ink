@@ -70,7 +70,7 @@ It swims sarcastically in your mind. It's an invitation to The Fare. It doesn't 
 +{not Thomas_Button.Pushed}Sister Tilly Sizzle's Slightly Too Spicy Slices!
 ->Thomas_Button
 
-*Lucy's Vending Machine Button.
+*Satisfaction? Maybe.
 ->Lucy_Button
 
 +Oobleck Enterprise's Non-Newtonian Nutrition
@@ -157,6 +157,17 @@ The packaging seems to sense your rejection and heats up rapidly in your hand un
 ===Lucy_Button===
 Thank you for pressing this button - we guarantee we have products that will always leave you wanting more!
 
+There {is 1 more button on the machine to press | is now a 2nd button to press | is now a 3rd button to press} - how exciting! // Each option appears the more player presses through the food/drink options.
+*Press normal-sized button
+->Normal_sized_button
+
+*Press slightly smaller button
+->Slightly_smaller_button
+
+*Press even smaller button
+->Even_smaller_button
+
+==Normal_sized_button==
 Please choose one of the following options:
 *Drink
 ->Drink
@@ -164,27 +175,199 @@ Please choose one of the following options:
 *Food
 ->Food
 
+==Slightly_smaller_button==
+Please choose one of the following options:
+*Normal sized drink
+->Normal_sized_drink
+
+*Normal-sized cake
+->Normal_sized_cake
+
+==Even_smaller_button==
+Please choose one of the following options:
+*Above average sized drinkable
+->Above_average_sized_drink
+
+*Above average sized cake
+->Above_average_sized_cake
+
 ==Drink==
 A tiny bottle rolls out the size of half your middle finger. 
 
 The label reads: "Dangerous substance - might not be drinkable".
 *Drink the substance
+->Drink_the_Substance
+
+*Pour the substance away
+->Pour_the_substance_away
+
+==Drink_the_Substance==
 The bottle is so small that there surely couldn't be any lasting damage, right?
 
 After drinking the substance, you immediately feel nauseous and on edge and yet... something deep within leaves you craving more.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
 ->Vending_Machine_Entrance
 
-*Pour the substance away
+==Pour_the_substance_away==
 Not taking any chances, you pour the substance away. It looks gloopy.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
 ->Vending_Machine_Entrance
 
 ==Food==
-Something rolls out - a cake, you realise, the size of a single pea.
+Something rolls out - a cake, you realise, the size of a single pea. 
+The cake is a vibrant purple.
 *Eat the cake
+->Eat_the_cake
 
+*Don't eat the cake
+->Dont_eat_the_cake
+
+==Eat_the_cake==
 The cake is delicious.
 
 The size leaves you feeling entirely unsatisfied.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
+->Vending_Machine_Entrance
+
+==Dont_eat_the_cake==
+You decide it's not worth eating a pea-sized cake.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
+->Vending_Machine_Entrance
+
+==Normal_sized_drink==
+A drink that is normal sized rolls out - you couldn't be happier at average it looks.
+
+The only thing you can discern from the label and the colour of the liquid, is that it must be lemon flavoured.
+
+*Drink lemon flavoured drink
+->Drink_lemon_flavoured_drink
+
+*Don't drink lemon flavoured drink
+->Dont_drink_lemon_flavoured_drink
+
+==Drink_lemon_flavoured_drink==
+You down the whole thing.
+You realise too late how much flavour this drink holds. The lemon is so strong, you feel it in every fibre of your being.
+
+You worry you might actually be turning into a lemon until the flavour subsides and you realise how ridiculous that is.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
+->Vending_Machine_Entrance
+
+==Dont_drink_lemon_flavoured_drink==
+You decide you don't want it - lemon-hater.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
+->Vending_Machine_Entrance
+
+==Normal_sized_cake==
+You almost cry looking at the size of this cake (after the basically non-existent one you just ate) // Include this line if player previously ate the tiny cake.
+
+*Eat normal sized cake
+->Eat_normal_sized_cake
+
+*Don't eat normal sized cake
+->Dont_eat_normal_sized_cake
+
+==Eat_normal_sized_cake==
+You bite into the cake, (eager to taste more of the deliciousness you did before).
+
+The inside of the cake is hollow.
+
+The cake has a slight under-baked flavour.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
+->Vending_Machine_Entrance
+
+==Dont_eat_normal_sized_cake
+Despite its normal size, you decide this cake isn't worth eating.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
+->Vending_Machine_Entrance
+
+==Above_average_sized_drink==
+The drink is slightly above average. It looks thicker than a drink should.
+*Drink above average drink
+->Drink_above_average_drink
+
+*Don't drink above average drink
+->Dont_drink_above_average_drink
+
+==Drink_above_average_drink==
+You take a sip of the drink (as learned from last time) // If player downed the bottle previously.
+
+The drink? immediately sticks to the inside of your mouth, making it hard to swallow or move your tongue.
+
+You think you might be trapped like this forever, until suddenly the drink? starts dissolving in your mouth. No traces of it are left, except a slight burnt bitter aftertaste.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
+->Vending_Machine_Entrance
+
+==Dont_drink_above_average_drink==
+With the strange thickness of the drink, you don't think it's worth taking the risk.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
+->Vending_Machine_Entrance
+
+==Above_average_sized_cake==
+The size of this cake is even more impressive (than the others).
+
+*Eat above average sized cake
+->Eat_above_average_sized_cake
+
+*Don't eat above average sized cake
+->Dont_eat_above_average_sized_cake
+
+==Eat_above_average_sized_cake==
+You take a tentative bite of the cake - the flavour is phenomenal, but the cake is incredibly dry.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
+->Vending_Machine_Entrance
+
+==Dont_eat_above_average_sized_cake==
+You have had one too many disappointments today, so you decide not to eat the cake. // Again, said if player has chosen a few options - work with variables.
+
+*Choose another item?
+->Lucy_Button
+
+*Leave
 ->Vending_Machine_Entrance
 
 
