@@ -92,7 +92,7 @@ It swims sarcastically in your mind. It's an invitation to The Fare. It doesn't 
 
 ===Thomas_Button===
 
-The eponymous & iconic Tilly Sizzle is depicted on the logo for TSSTSS in her usual form. That of a cartoon laser pistol with eyelashes. She was a more appropriate mascot back when her company sold weapons, but she seems happier now they've moved on to snacks. She still has that far off look in her eyes though.
+The eponymous & iconic Tilly Sizzle is depicted on the logo for TSSTSS in her usual form. That of a cartoon flamethrower with eyelashes. She was a more appropriate mascot back when her company sold weapons, but she seems happier now they've moved on to snacks. She still has that far off look in her eyes though.
 
 Tilly's slices come with an absolute guarantee that they will be slightly too spicy for the consumer. You'd have to be pretty hardcore to pick something that you're guaranteed not to enjoy.
 
@@ -111,11 +111,11 @@ The packaging is almost entirely disclaimer text printed on an image of Tilly Si
 
 *[Read the disclaimer.]
 
-<i>WARNING. THIS PRODUCT CONTAINS GLUTEN, PEANUTS, QUANTUM WAVEFORM RECEIVERS AP-105,AP-103,AP-5^787,AP-0000,AP-DOROTHY.</i>
+<i>WARNING. THIS PRODUCT CONTAINS GLUTEN, PEANUTS, QUANTUM WAVEFORM RECEIVERS AP-105,AP-103,AP-5^787,AP-0000,AP-0,AP-ZERO,AP-DOROTHY.</i>
 
-<i>Depending on your physiology and disposition the collapse of these quantum waveforms is guaranteed to and in some cases has already caused negative symptoms ranging from DISCOMFORT to INSTANT DEATH.</i>
+<i>Depending on your physiology and disposition the collapse of these quantum waveforms is guaranteed to and in some cases has already caused negative symptoms ranging from DISCOMFORT to EXISTENCE.</i>
 
-<i>This product is not suitable for consumption by Highly Improbable Entities or Wusses. This product is not suitable for enjoyment by anyone.</i>
+<i>This product is not suitable for consumption by Highly Improbable Entities or Wusses. This product is not suitable for enjoyment.</i>
 
     **[On second thought... No.]
     
@@ -125,7 +125,7 @@ The packaging is almost entirely disclaimer text printed on an image of Tilly Si
     **[They only write this stuff to make you feel cool for eating something so dangerous... and it's working...]
     ->Eaten
     
-    **[This is a rare opportunity to eat something with QUANTUM WAVEFORM RECEIVERS... whatever those are. Better not pass it up.]
+    **[This is a rare opportunity to eat something with QUANTUM WAVEFORM RECEIVERS whatever those are. Better not pass it up.]
     ->Eaten
 
 *[Just tear open the bag and give them a try. Hopefully someone will see you eating them and be impressed.]
@@ -133,7 +133,13 @@ The packaging is almost entirely disclaimer text printed on an image of Tilly Si
 
 =Eaten
 ~ VendingMachineInteraction = VendingMachineInteraction +1
-The slices themselves are light brown unassuming discs that remind you of dried apricot. You drop one onto the palm of your hand to examine it, and almost immediately your hand begins to tingle. The spice is on your skin and it's a little bit much. You instinctively pop the slice in your mouth.
+The slices themselves are damp leathery discs that remind you of dried apricot. You drop one onto the palm of your hand to examine it, and almost immediately your hand begins to tingle. The spice is on your skin and it's a little bit much. You instinctively pop the slice in your mouth.
+
+*[Chew.]
+
+*[Take it slow. Just let it sit on your tongue.]
+
+-
 
 It tastes incredible. It's savoury. It's complex. It's sweet but also mature. It's earthy but also refreshing. It's... Oh here comes the spice. No. No. It's too spicy. It's just a little bit too spicy to enjoy it really.
 
@@ -142,17 +148,51 @@ It tastes incredible. It's savoury. It's complex. It's sweet but also mature. It
     You splutter and spit it out.
 
     
-*[Just bear it. Force yourself to chew.]
+*[Just bear it. Force yourself to finish what you started.]
 
 No. No. It's really <i>too</i> spicy. You try to inhale and the air passing over the slice becomes hostile to all human life on its way down your throat. You splutter and just like that you've lost it.
 
 -
 
-The slightly too spicy slice slops onto the ground trailing smoke like the tail of a slimy comet.
+The slightly too spicy slice slops onto the ground trailing smoke like the tail of a slimy comet. What a waste. You have failed.
+
+*[Fortify yourself. Pick it up. Finish it.]
+->Eaten_Again
+*[Give up and consign yourself to littering and waste.]
 
 The packaging seems to sense your rejection and heats up rapidly in your hand until it's slightly too hot to hold and you drop it with a yelp. It cooks itself to ash right there on the floor in front of you. The thick smoke wafting from the torched packaging makes your mouth water, but you know it's actually too spicy to enjoy.
     ->Vending_Machine_Entrance
 
+
+=Eaten_Again
+The slice has fallen into- or perhaps excreted- a pool of hot fragrant scum. The liquid seems to hold on like the stomach of a hungry anemone. You peel the slice off the ground and your naked fingers immediately start to protest.
+
+*[Mmm. Yummy. Yes. Time for round two. It's only spice. What could go wrong?]
+
+Seriously?
+
+    **[Put the slice in your mouth.]
+    
+    There's a layer of thin metallic grit between you and the slice, but once you've licked it away and returned to chewing, the sensation that originally repelled you returns. It's slightly too spicy. There's also something new: Shame.
+    
+        ***[JUST SWALLOW IT. WIN.]
+        
+        You swallow. Your mouth, throat, and vision go red. You can hear yourself bleating and heaving, but you can't feel anything any more. By the time it's over, the slightly too spicy slice is lying in a puddle on the floor, unswallowed. The slice lies there with the dejected triumph of someone who has won a war they never should have started.
+        
+        This has not been a good meal.
+        ->Vending_Machine_Entrance
+        
+        ***[Come to your senses and spit it out one last time.]
+        
+        You spit it out and congratulate yourself on giving it a real fair try.
+        ->Eaten_Again_Rejected
+
+*[Throw it away and question what you were even thinking.]
+->Eaten_Again_Rejected
+
+=Eaten_Again_Rejected
+The packaging seems to sense your rejection and heats up rapidly in your hand until it's slightly too hot to hold and you drop it with a yelp. It cooks itself to ash right there on the floor in front of you. The thick smoke wafting from the torched packaging makes your mouth water, but you know it's actually too spicy to enjoy.
+    ->Vending_Machine_Entrance
 
 ===Lucy_Button===
 Thank you for pressing this button - we guarantee we have products that will always leave you wanting more!
