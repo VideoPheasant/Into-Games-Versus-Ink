@@ -225,7 +225,7 @@ Please choose one of the following options:
 
 ==Even_smaller_button==
 Please choose one of the following options:
-*Above average sized drinkable
+*Above average sized drink
 ->Above_average_sized_drink
 
 *Above average sized cake
