@@ -1,6 +1,6 @@
 === function report_time ===
 
-//We assume the game starts at 8AM, and that oen unit of the time variable is 1 minute. We can then calculate the number of hours on the clock
+//We assume the game starts at 8AM, and that one unit of the time variable is 1 minute. We can then calculate the number of hours on the clock
 
 ~temp hours = time / 60 + 8
 
@@ -19,7 +19,7 @@
 The time is {hours < 10:0}{hours}:{minutes < 10:0}{minutes}.
 
 
-//We also want to display the time until dinner, along with a message that supersedes everything else in case it is in fact dinner time.
+//We also want to display the time until dinner, along with a message that supercedes everything else in case it is in fact dinner time.
 
 {   time_to_dinner == 0:
 
