@@ -1,3 +1,6 @@
+INCLUDE Functions.ink
+VAR time = 0
+VAR dinner_time = 120
 VAR VendingMachineInteraction = 0
 
 ->Vending_Machine_Entrance
@@ -53,6 +56,8 @@ It swims sarcastically in your mind. It's an invitation to The Fare. It doesn't 
 
 ->Vending_Machine_Entrance
 ===Vending_Machine_Entrance===
+~ report_time()
+
 
 {VendingMachineInteraction == 3:
     3 Interactions, and probably a direct on to the next part of the game.
