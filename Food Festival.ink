@@ -3,8 +3,12 @@ VAR time = 0
 VAR dinner_time = 120
 VAR VendingMachineInteraction = 0
 
-->Vending_Machine_Entrance
+*Play test sound
+
+->Vending_Machine_Intro
 =Vending_Machine_Intro
+#AUDIO: InkTestSound.m4a
+
 
 Everyone remembers the first time they tasted The Fare. For you, your first true meal was<>
 
