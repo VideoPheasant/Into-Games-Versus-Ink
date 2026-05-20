@@ -783,7 +783,7 @@ It bears a faded ink insignia: a bunch of grapes, heavy on the vine. Its leaves 
  =Pushed
 Something clicks, then whirrs within the machine. And then a faint loop of static, before a tinny voice pipes up.
 
-<i>Ah, bonjour, my dear cus-de-mér!</i>
+<i>Ah, bonjour, my dear cus-de-mér!</i> #audio_ID_8_Jenyth
 
 *[Look at the other buttons. Anything but whatever this is.]
 ->Vending_Machine_Entrance
@@ -792,6 +792,7 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
 *[Reply with, <b>Bonjour?</b>]You reply with, <b>Bonjour?</b>
     ~ playerCorrectFrench++
     <i>Ahon, a fellow... Français!</i> The voice laughs, but then hesitates for a second, leaving you alone with the static. Then it clears its throat.
+    #audio_ID_9_Jenyth
     ->Intro
     
 =Intro
@@ -802,20 +803,22 @@ Something clicks, then whirrs within the machine. And then a faint loop of stati
 }
     bienvenue en la Maison de Pomponville!</i>
 The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i>We are the home of the finest of wines. We 'ave you covered, no matter your taste: old worlds, new worlds, worlds as of yet undiscovered: we 'ave them all!</i>
-
+#audio_ID_11_Jenyth
 *[Remain silent as a sign of assent.] You wait, patiently, for the machine to continue. You're listening.
     <i>Ah, I can tell you are a... how you say. Person of great taste!</i> The voice descends into a series of guffaws, noises you can only imagine being made by someone swilling wine around a glass at a dinner party.
 *[Remain silent and thoroughly unimpressed.] You allow your silence to flow forth towards the machine.
-    A nervous crackle of laughter, and a few extra clicks. Then, the voice continues.
+    A nervous crackle of laughter, and a few extra clicks. Then, the voice continues.#audio_ID_12_Jenyth
 *Hmm... something seems off about the voice's French.
     ~ correctedVoicesFrench = true
     You ponder what could be wrong.
     ** Isn't <i>maison</i> masculine? Doesn't the voice mean <i>le maison</i>?
         ~ playerIncorrectFrench++
         The voice guffaws. <i>Ah, le cus-de-mér may not always be right, non? Maison is most</i> definitely <i>le feminine.</i>
+        #audio_ID_12_Jenyth
     ** Why did the voice say <i>bienvenue en</i>? And not <i>bienvenue à</i>?
         ~ playerCorrectFrench++
         You hear a metallic buzz and gurgle near the back of machine, like a refrigerator suddenly kicked into life. <i>Ah... mais that is what I said! Bienvenue </i>à<i> le Maison de Pomponville!</i>
+        #audio_ID_15_Jenyth
                 ***[Maybe this isn't worth it.]
                 ***<b>But <i>maison</i> is feminine. Don't you mean <i>la Maison?</b>
                     The vending machine jolts. Click, click, click: then the quiet static again. <i>Ah, my dear cus-de-mér, I cannot 'ear you: there is so much... in-tér-fear-ance...</i>
@@ -823,7 +826,7 @@ The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i
                     **** [It doesn't seem that loud to you.]
                     -> Exit_Button
 - 
-{correctedVoicesFrench: The voice clears its throat.} <i>Well, uh, would you 'ave any vin to ensample?</i>
+{correctedVoicesFrench: The voice clears its throat.} <i>Well, uh, would you 'ave any vin to ensample?</i> #audio_ID_12_Jenyth
 
 *Tu penses oui.
 ~ playerCorrectFrench++
@@ -860,7 +863,7 @@ The voice gains a certain glassy-eyed quality, as if reading from an autocue. <i
 {LIST_COUNT(WineColours) > 0:
 {<i>Sur bien!</i> The vending machine vibrates gently, then ends with a sudden record scratch. The static returns.|Another judder and hum from the machine.}
 
-{A small hatch opens, revealing a spout not unlike an automatic coffee machine. A scratched |And another} plastic {wine glass falls down from above, and as teeters in place, {currentWineColour} wine gushes out of the spout to fill it.| glass precariously drops. This time, {currentWineColour} wine fills it.} 
+{A small hatch opens, revealing a spout not unlike an automatic coffee machine. A scratched |And another} plastic {wine glass falls down from above, and as teeters in place, {currentWineColour} wine gushes out of the spout to fill it.| glass precariously drops. This time, {currentWineColour} wine fills it.} #audio_ID_9_Jenyth
 
 <i>{Now, here is something|And here, this bev-vér-age is|I am certain that this time, this will be} very special: <>
 }</i><>
@@ -898,7 +901,8 @@ The voice has gained a new quality: as if you can hear the sweat running down it
     - currentWineColour == silver:
         <i>Ah, that is one of our</i> newer... <i> new world wines.</i> The voice offers no further explanation.
     - currentWineColour == orange:
-        <i>I...</i> The voice sounds genuinely perplexed. <i>I thought this dimension had orange wine. Maybe you've just never had any?</i>
+        <i>I...</i> The voice sounds genuinely perplexed. <i>I thought this dimension had orange wine. Maybe you've just never had any?</i> #audio_ID_13_Jenyth
+        
     }
     Do you want this glass of wine, or not?
     ++No, {currentWineColour} wine sounds weird.
@@ -946,7 +950,7 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 
 {
     - wantsDifferentWineColour == true:
-    {A nervous chortle. <i>Le cus-de-mér is always right. If you please, just throw that, uh...</i>|Je suis</i> so <i>sorry, my dear cus-dé-mer: please, throw that|Once again, I can only apologise: fling that} {nameOfThing(LIST_RANDOM(LIST_ALL(NegativeWineNouns)))} <i> on le floor. {Where it belongs.</i>|}
+    {A nervous chortle. <i>Le cus-de-mér is always right. If you please, just throw that, uh...</i>|Je suis</i> so <i>sorry, my dear cus-dé-mer: please, throw that|Once again, I can only apologise: fling that} {nameOfThing(LIST_RANDOM(LIST_ALL(NegativeWineNouns)))} <i> on le floor. {Where it belongs.</i>|} #audio_ID_12_Jenyth
     - wantsDifferentWineType == false:
         <i>Ah, mais of course!</i>
     - ranOutOfWineTypes == true:
@@ -983,7 +987,7 @@ The voice has gained a new quality: as if you can hear the sweat running down it
 ~ secondFlavourAdjective = LIST_RANDOM(FlavourAdjectives)
 ~ FlavourAdjectives -= secondFlavourAdjective
 
-Hmm... how would you describe this? Notes of... {nameOfThing(firstNoteNoun)}, and {nameOfThing(secondNoteNoun)}. You might say the body feels {LIST_RANDOM(LIST_ALL(BodyAdjectives))}.
+Hmm... how would you describe this? Notes of... {nameOfThing(firstNoteNoun)}, and {nameOfThing(secondNoteNoun)}. You might say the body feels {LIST_RANDOM(LIST_ALL(BodyAdjectives))}. #audio_ID_16_Jenyth
 
 As it sits on your palate, it develops a new flavour. Something {firstFlavourAdjective}. Then, {secondFlavourAdjective}.
 
@@ -995,16 +999,17 @@ As it sits on your palate, it develops a new flavour. Something {firstFlavourAdj
     
 =WineVerdict
 <i>Ahh, I see...</i> You hear a pencil scribbling on paper. <i>And... your verdict? Does this wine live up to your expectations?</i>
+#audio_ID_17_Jenyth
 
 +You love it.
     Over the speaker, you hear something new. A faint French horn, tooting out a victory tune.
-    The voice is breathless, ecstatic, sharing in your delight. You swear you can hear the clapping of its hands. <i>Oh, bloody marvellous!</i> 
+    The voice is breathless, ecstatic, sharing in your delight. You swear you can hear the clapping of its hands. <i>Oh, bloody marvellous!</i> #audio_ID_18_Jenyth
     
     It seems, however, to suddenly catch itself after this outburst. <i>Uh... I mean... My dear cus-dé-mer, I am </i>so <i> glad to 'ear it!</i> The French accent returns, dripping off every word.
 +You think, eh.
-    <i>Interessent...</i> You hear more scribbling, as the voice mutters under its breath. <i>Distinctly... av-ér-age... alors...</i>
+    <i>Interessent...</i> You hear more scribbling, as the voice mutters under its breath. <i>Distinctly... av-ér-age... alors...</i> #audio_ID_20_Jenyth
 +You had been waiting this whole time to spit it out.
-    <i>Oh...</i> The voice has the distinct quality of someone looking at a squished insect on a dinner plate. <i>Ah, no. I knew we should have provided disposable spitoons as well...</i>
+    <i>Oh...</i> The voice has the distinct quality of someone looking at a squished insect on a dinner plate. <i>Ah, no. I knew we should have provided disposable spitoons as well...</i> #audio_ID_19_Jenyth
 
 -
 {currentWinesTasted < 3:
@@ -1014,7 +1019,7 @@ As it sits on your palate, it develops a new flavour. Something {firstFlavourAdj
     +No. Time to line your stomach with something else.
     ->Exit_Button
 - else:
-    <i>My dear cus-de-mér, I would love to offer you another bev-ér-age, mais... the legal limit for this con-trap-tion is three wines.</i>
+    <i>My dear cus-de-mér, I would love to offer you another bev-ér-age, mais... the legal limit for this con-trap-tion is three wines.</i> #audio_ID_13_Jenyth
     +You suppress a hiccup. Perhaps it's good you're stopping here.
     ->Exit_Button
     +You feel totally fine, but whatever.
@@ -1026,17 +1031,17 @@ As it sits on your palate, it develops a new flavour. Something {firstFlavourAdj
 ~ VendingMachineInteraction++
 {
 - voiceKickedPlayerOut == true:
-    <i>Non... ah non...</i> You hear a chair creak, as if the voice is leaning away from the microphone. <i>Non, je ne able pas to 'ear you... goodbye, my dear cus-de-mér...</i>
+    <i>Non... ah non...</i> You hear a chair creak, as if the voice is leaning away from the microphone. <i>Non, je ne able pas to 'ear you... goodbye, my dear cus-de-mér...</i> #audio_ID_21_Jenyth
 - currentWinesTasted > 0:
-    The voice seems to sense your eyes drifting to other buttons. <i>Ah, I see you are leaving... please, uh, consider leaving a review of the wines you 'ave enjoyed on our webs-</i>
+    The voice seems to sense your eyes drifting to other buttons. <i>Ah, I see you are leaving... please, uh, consider leaving a review of the wines you 'ave enjoyed on our webs-</i> #audio_ID_22_Jenyth
 -else:
-    The voice seems to sense your eyes drifting to other buttons. <i>Ah, o-kay, c'est... fine, mais, I do get paid by the number of reviews on our website, so please do-</i>
+    The voice seems to sense your eyes drifting to other buttons. <i>Ah, o-kay, c'est... fine, mais, I do get paid by the number of reviews on our website, so please do-</i> #audio_ID_22_Jenyth
 }
-
+#TODO make this part a new scene so can play a record scratch at the start of it.
 A pop, static, then a click. Silence. <>
 {voiceKickedPlayerOut:The button is now unresponsive. }
 
-The voice is gone.
+The voice is gone. #audio_ID_23_Jenyth
 
 ->Vending_Machine_Entrance
 
