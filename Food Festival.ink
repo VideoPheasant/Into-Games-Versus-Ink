@@ -751,7 +751,7 @@ LIST PositiveWineAdjectives = special, interesting
 
 LIST NotesNoun = citrus, peach, melon, battery, fig, sharpie, cardboard, stardust, tyre, horseSweat, petrol, ripeBerries, mocha, blackPepper
 LIST BodyAdjectives = angular, full, flabby, approachable, balanced, crisp, dense, supple, sticky, slick
-LIST FlavourAdjectives = dry, earthy, elegant, herbaceous, jammy, savoury, silky, spicy, tart, unctuous, zesty, peppery
+LIST FlavourAdjectives = dry, earthy, elegant, herbaceous, jammy, savoury, silky, spicy, tart, unctuous, zesty, peppery, chalky, grassy, bitter, sour, acrid, sharp, caramelised, medicinal, nutty, spoiled, sulfurous
 LIST BarrelAdjectives = oak, cedar, birch, cherryWood, mahogany, pine, laminate, clay, sandstone
 LIST RegionDescriptors = desert, ancientForest, swamp, greatPlains
 LIST RegionAdverbs = diligently, cautiously, doggedly, triumphantly
@@ -1069,3 +1069,4 @@ The voice is gone. #audio_ID_23_Jenyth
     - horseSweat: horse sweat
     - else: {what}
 }
+
