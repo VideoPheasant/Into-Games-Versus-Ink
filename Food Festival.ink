@@ -750,13 +750,13 @@ LIST NegativeWineNouns = plonk, corkedRubbish, swill, rotgut
 LIST PositiveWineAdjectives = special, interesting
 
 LIST NotesNoun = citrus, peach, melon, battery, fig, sharpie, cardboard, stardust, tyre, horseSweat, petrol, ripeBerries, mocha, blackPepper
-LIST BodyAdjectives = angular, full, flabby, approachable, balanced, crisp, dense, supple, sticky, slick
-LIST FlavourAdjectives = dry, earthy, elegant, herbaceous, jammy, savoury, silky, spicy, tart, unctuous, zesty, peppery, chalky, grassy, bitter, sour, acrid, sharp, caramelised, medicinal, nutty, spoiled, sulfurous
-LIST BarrelAdjectives = oak, cedar, birch, cherryWood, mahogany, pine, laminate, clay, sandstone
+LIST BodyAdjectives = angular, full, flabby, approachable, balanced, crisp, dense, supple, sticky, slick, light, dainty, heavy, brooding, rich, thick
+LIST FlavourAdjectives = dry, earthy, elegant, herbaceous, jammy, savoury, silky, spicy, tart, unctuous, zesty, peppery, chalky, grassy, bitter, sour, acrid, sharp, caramelised, medicinal, nutty, spoiled, sulfurous, metallic, tangy
+LIST BarrelAdjectives = oak, cedar, birch, cherryWood, mahogany, pine, laminate, clay, sandstone, rubber, plastic
 LIST RegionDescriptors = desert, ancientForest, swamp, greatPlains
 LIST RegionAdverbs = diligently, cautiously, doggedly, triumphantly
 LIST places = surrey, newKensington, moon, paradise, cave
-LIST TanninsAdjectives = chewy, grippy, rough, round, soft, structured, euclidean
+LIST TanninsAdjectives = chewy, grippy, rough, round, soft, structured, euclidean, abrasive, clean, confused, coagulated, fluffy, frothy, itchy, mucky, refined, soggy, syrupy
 LIST NumberOfYears = five = 5, ten = 10, fifteen = 15, twenty = 20, notSure, unfathomableNumber
 
 //For now I want the list of adjectives and nouns here to reset every time. I couldn't be bothered putting brackets around every item in the list, so this autopopulates the list with every possible adjective defined within it when the player first enters the button.
@@ -1002,6 +1002,7 @@ As it sits on your palate, it develops a new flavour. Something {firstFlavourAdj
 #audio_ID_17_Jenyth
 
 +You love it.
+    
     Over the speaker, you hear something new. A faint French horn, tooting out a victory tune.
     The voice is breathless, ecstatic, sharing in your delight. You swear you can hear the clapping of its hands. <i>Oh, bloody marvellous!</i> #audio_ID_18_Jenyth
     
@@ -1060,7 +1061,7 @@ The voice is gone. #audio_ID_23_Jenyth
     - surrey: Surrey
     - moon: a tiny lunar satellite
     - newKensington: New Kensington
-    - cave: the Umberhills, where the under-grapes thrive among the stalactites
+    - cave: the Umberhills
     - cherryWood: cherry wood
     - notSure: ...</i> The voice pauses. <i>Actually, I'm not sure for how many
     - unfathomableNumber: an unfathomable number of
