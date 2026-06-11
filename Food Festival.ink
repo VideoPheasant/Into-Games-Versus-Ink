@@ -47,7 +47,8 @@ VAR VendingMachineInteraction = 0
 +{not Jenyth_Button.Pushed}<i>MSN de POMP. VINS.</i>
 ->Jenyth_Button
 
-
+*Fautical's Vending Machine Button
+->Fautical_Button
 
 ===Thomas_Button===
 
@@ -1070,4 +1071,25 @@ The voice is gone. #audio_ID_23_Jenyth
     - horseSweat: horse sweat
     - else: {what}
 }
+
+===Fautical_Button===
+Placeholder text for Fautical's button
+
+*Example choice 1
+Example choice text 1
+    **Example Choice 1, Complication option 1
+    
+    **Example choice 1, Complication option 2
+
+--
+
+*Example Choice 2
+Example choice text 2
+
+-
+
+Example non reactive response.
+
+->END
+
 
