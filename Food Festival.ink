@@ -9,7 +9,7 @@ You're hungry. You've eaten every product sold on every shelf in every shop in t
 
 It took a lot, but today you can finally eat something new again. There are three shimmering, vibrating coins in your pocket. They rumble like upset stomachs. This dimension has given them indigestion. It's time to send them home.
 
-There is it. The vending machine.
+There it is. The vending machine.
 
 ->Vending_Machine_Entrance
 
