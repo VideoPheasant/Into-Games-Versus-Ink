@@ -5,22 +5,25 @@ VAR time = 0
 VAR dinner_time = 120
 VAR VendingMachineInteraction = 0
 
-*[Start]
+You're hungry. You've eaten every product sold on every shelf in every shop in town and you're still hungry. You've eaten the contents of every menu in every restaurant and you've nibbled the corners of the menus themselves for good measure. None of it is enough.
+
+It took a lot, but today you can finally eat something new again. There are three shimmering, vibrating coins in your pocket. They rumble like upset stomachs. This dimension has given them indigestion. It's time to send them home.
+
+There it is. The vending machine.
 
 ->Vending_Machine_Entrance
 
 ===Vending_Machine_Entrance===
-~ report_time()
 
 
 {VendingMachineInteraction == 3:
     3 Interactions, and probably a direct on to the next part of the game.
   - else:{VendingMachineInteraction == 2:
-  2 interactions.
+  A second of your three extra dimensional coins has dissolved against the surface of our reality like a communion wafer. The machine is salivating static. It smells like disappointed onions.
   - else:{VendingMachineInteraction == 1:
-  1 interaction.
+  The vending machine has eaten one of your three extra dimensional coins. The emptiness it leaves behind has a strange weight in the pit of your pocket. If anything the machine seems hungrier than before, and so for that matter do you.
   - else:
-    {The vending machine looms over you. It hums with the low irregularity of an old fridge. It wants you to push its buttons.|The vending machine waits hungrily for you to make another selection. Go on. Treat yourself. Open yourself up to new experiences.}
+    {It looms over you. It hums with the low irregularity of an old fridge. It wants you to push its buttons.|The vending machine waits hungrily for you to make another selection. Go on. Treat yourself. Open yourself up to new experiences.}
 }
     }
         }
@@ -37,9 +40,6 @@ VAR VendingMachineInteraction = 0
 
 +{not Teo_Button.ForcefullyPressAgain}Sir Jerry Breen's Fantastical Jellybeans
 ->Teo_Button
-
-*Jon's Vending Machine Button.
-->Jon_Button
 
 +{not Incomprehensible_Word.Pushed}Incomprehensible Word.
 ->Incomprehensible_Word
@@ -593,6 +593,7 @@ You press the button. It softly slides back inside, and out...
 ->Vending_Machine_Entrance
 
 =ForcefullyPressAgain
+~ VendingMachineInteraction = VendingMachineInteraction +1
 Unexpectedly... The vending machine responds to your selection with a soulless, automated message sounding from its speaker:
 
 "Sir Jerry Breen's Fantastical Jellybeans are sure to delight you and sure not to disappoint!"
@@ -657,9 +658,6 @@ You continue chewing and enjoying the jellybean...
 
 ->Vending_Machine_Entrance
 
-===Jon_Button===
-->Vending_Machine_Entrance
-
 ===Incomprehensible_Word===
 {The button glows with a dizzying light not suitable for mortal eyes. Bizarre glyphs flicker in and out of view around the button while the sound of ambient guttural chanting (or is it whispering?) can be heard the longer one looks. | The button waits, eager for you to take action.}
 *Listen closely.
@@ -677,6 +675,7 @@ The whispering chants (or chanting whispers?) gain clarity as you hear a voice t
 ->Incomprehensible_Word
 
 =Pushed
+~ VendingMachineInteraction = VendingMachineInteraction +1
 The vending machine trembles as ancient magic is beckoned, threatening to sunder the skeins of reality and call unspeakable abominations through its dispenser, before it ejects a holographic package decorated with the unassuming black logo of an open eye.
 
 *Inspect the package
@@ -782,6 +781,7 @@ It bears a faded ink insignia: a bunch of grapes, heavy on the vine. Its leaves 
 ->Jenyth_Button
 
  =Pushed
+ ~ VendingMachineInteraction = VendingMachineInteraction +1
 Something clicks, then whirrs within the machine. And then a faint loop of static, before a tinny voice pipes up.
 
 <i>Ah, bonjour, my dear cus-de-mér!</i> #audio_ID_8_Jenyth
