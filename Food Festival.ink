@@ -1078,7 +1078,7 @@ The Empty Wrapper Company sounds like it should have gone bankrupt a long time a
 You eye the dull red wrapper, and read the only thing printed on it: "It's not what you expect, but it's what you need."
 
 *[I wouldn't expect a million pounds but it's certainly what I need. Hit me up.]
-You push the button. The machine makes no noise and doesn't appear to disperse anything. For a moment you think you've been scammed, and wish you'd grabbed your phone to record the injustice. You're raising your foot to try to kick the machine into life, but as you look down you see the empty wrapper has appeared in the pick-up-box.
+You push the button. The machine makes no noise and doesn't appear to dispense anything. For a moment you think you've been scammed, and wish you'd grabbed your phone to record the injustice. You're raising your foot to try to kick the machine into life, but as you look down you see the empty wrapper has appeared in the pick-up-box.
     **[Kick the machine anyway.]
     You accomplish nothing but a stubbed toe.
         ***[Pick up the empty wrapper whilst wincing.]
@@ -1110,7 +1110,6 @@ VAR choice = 0
 { choice:
 -1: ->hobnob
 -2: ->teacake
--3: ->gummy_worm
 }
 
 ===hobnob===
@@ -1137,7 +1136,7 @@ It catches you in its many arms and plops you down on a squishy seat. Your head 
 *["People like me?"]
     "Yer landlubbers! ->space_legs
 
-*["What's out the window?"]
+*["Where am I?"]
    "Space! ->space_legs
 
 *["Wait - spacelegs?"]
@@ -1162,7 +1161,10 @@ You rub your temples. It seems The Empty Wrapper Company has a place in the mark
     "It depends. Their slogan, ''it's wha' yer need'' or somethin' like tha,' means tha' until yer get wha' yer need ou' of this, yer stuck here."
         ***["So... where are we going? That might help."]
         "We're heain' to an asteroid field." The Fisherthing said. "And ar, if I'm righ'... I thin' it migh' be jus' the thin' you need."
-            ****[Nod politely.] ->golden_whale
+        
+        Just the thing you need? What, a way home?
+        ->golden_whale
+         
 
 *["Have you heard of The Empty Wrapper Company?]
 The Fisherthing nods.
@@ -1175,17 +1177,32 @@ The Fisherthing nods.
     
     **["I'm questioning your appearance."]
     You do not quite know what made you say it. Its purple body and many arms shudder with a sudden rage. It occurs to you that you do not know anything about its species. You do not even know its name. You cannot assume anything about it. What if what you'd just said was the equivalent of murder to it?
-        ***[Apologise profusely like the good human you are]
-        You don't have a chance to get the words out before it rears its arms in what can only be assumed - though you just learned you can't assume anything - an attacking stance. ->running
-        ***[OH GODS RUN]
+        ***[Apologise profusely like the good human you are.]
+            You roll off the squishy chair and curl up into a deep bow as the Fisherthing raises its arms in an attacking posture. You squeeze your eyes shut and wait. You hope it doesn't pick you up like a bowling ball and roll you overboard. Straight into space. Strike. But then, the Fisherthing laughs.
+            ****[Laugh awkwardly with it.]
+            "Yer almost go' me there, landlubber!" The Fisherthing howls with laughter. "Be careful now! Me kind don' take kindly to tha' sort o' thing. I've got somethin' special for yer, to take yer home. Don' wan' to go ruinin' that now, do yer?"
+            
+            You suppose not.
+            ->golden_whale
+    
+        ***[OH GODS RUN!]
         ->running
 
 *[Scream really really really really loudly.]
 The Fisherthing jumps.
 "Bijeezus, landlubber! Wha're you playin' at? Did yer not know wha' you ate?"
 You are perfectly aware of what you ate. But you're screaming, and now you've started you can't stop. Your heart rate skyrockets. Your throat burns. The Fisherthing seems unsure of what to do, first curling its arms around itself in some sort of comfort against your dreadful noise, then tries to comfort you, but at least ten alien arms wrapping around you is not what you'd call comforting.
+    **[Ten arms is just ten friends. It's fine. I'm fine.]
+        You don't have ten friends in reality, but you manage to regain some control over yourself. The Fisherthing, thankfully, releases you. It's still a little jumpy, but maybe that's more than you can hope for right now. For all you know, you could've ruined any chance at... whatever this is.
+        ***["Sorry, Fisherthing, I just don't know what I'm doing here!"]
+        -> golden_whale
+        ***[Actually, I haven't finished screaming.]
+        You get it out of your system once more. But that's all your system can take. The taste of the chocolate hobnob returns to your mouth, alongside the sensation of vanishing from existence.
+            ****[It's quite nice, this.]
+            ->scrunch_the_wrapper
     **["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]
 ->scrunch_the_wrapper
+
 
 ===running===
 You book it. You rise from the squishy chair, which does a fantastially inconvenient job of making that a challenge, and head for the door to the open deck. You wobble and stumble out and collapse onto the wood. Damned spacelegs. You have just a moment to appreciate the beauty of it, the impossibility of it, of looking straight out into the void with no barrier of any kind in your way. Breathtaking. Then the Fisherthing enters your vision. You're tempted to cry out, "just one more moment!" But then you're gone.
@@ -1206,9 +1223,9 @@ You blink and the machine is back in front of you. The wrapper is still in your 
 ->Vending_Machine_Entrance
 
 ===golden_whale===
-"If we're lucky, we'll collec' up the mini spacemites, cast our rods over por' or starbord, and catch ourselves a gol' whale!" The Fisherthing punches the air with a few arms. "Well, I say catch, the gol' whale won' have tha', but its a manner of speakin.' I reckon tha'll get yer home in a jiffy."
+"If we're lucky, we'll collec' up the mini spacemites, cast our rods over, and catch ourselves a gol' whale!" The Fisherthing punches the air with a few arms. "Well, I say catch, the gol' whale won' have tha', but its a manner of speakin.' I reckon tha'll get yer home in a jiffy."
 
-Home. That sounds nice. But on the other hand, this is pretty fun now that you don't think you're going to die at any moment.
+Home. That sounds nice. But this could be pretty fun now that you don't think you're going to die at any moment. Maybe you should make the most of it.
 
 *["The gold whale can send me home?"]
     "Not quite, landlubber!" The Fisherthing laughs. "I don' know how it works, but tha' company needs yer ter feel somethin' brand-new, or... somethin' that changes yer in some way. And we're nearly 'ere. Let's 'ead ter deck."
@@ -1216,8 +1233,8 @@ Home. That sounds nice. But on the other hand, this is pretty fun now that you d
     ->fishing_time
 *["Brilliant, where's my rod?"]
     The Fisherthing grins at your eagerness. You probably represent all of humanity to it, so it's a good thing you're leaving such a good impression. 
-    "I've go' one rod on each side o' my ship's deck. C'mere, take yer pick, but don't take it lightly."
-    **[Examine the fishing rods on deck.]
+    "I've go' a rod on my ship's deck. Take 'er look."
+    **[Take 'er look.]
     ->fishing_time
 *[No, its completely lying and I have no choice but to take matters into my own two hands.]
     Despite the Fisherthing being as nice as one could ever possibly be, you are a humanist through and through. You just didn't know that until now. And you can't sit on your prejudices any longer.
@@ -1226,23 +1243,16 @@ Home. That sounds nice. But on the other hand, this is pretty fun now that you d
     
 ===fishing_time===
 
-You had to admit, you were a little nervous stepping out onto the open deck, with no walls or fences or anything between you and the void, but you can somehow breathe here. And experience the same smells as you would on the ocean. On a normal ship, you'd be heading outside to the open ocean, the wind and salty spray in your face. You weren't expecting to feel this in the middle of boundless space, but it's here anyway. Maybe it's your brain playing tricks on you, an illusion of some kind. Trying to piece together what it knows despite being in such an unknown situation. You wobble as you take those humiliating steps. Even the ship rocks like it would riding the waves. Bizzare.
+You had to admit, you were a little nervous stepping out onto the open deck, with no walls or fences or anything between you and the void, but you can somehow breathe here. And experience the same salty smells as you would on the ocean.  You wobble as you take those humiliating steps. Even the ship rocks like it would riding the waves. Bizzare.
 
-The Fisherthing is carrying a lot in its arms, the squishy chair, thankfully, and a lot of buckets. They look quite normal, except the top appears sealed with an almost completely see-through film.
+The Fisherthing is carrying a lot in its arms, the squishy chair, thankfully, and a lot of buckets. For a moment you consider what kind of planet it evolved on for it to generate that many arms. It gestures with a few for you to sit down.
 
-"It's the same thin' as what's roun' my ship." The Fisherthing explained as it sees you looking. "A bubble, if yer will. Livin' things can pass through no prob'em, but only one way."
+*[Be seated.]
+->rod
 
-The large fishing rod on the port side is silver, and sounds like it is humming slightly. The starboard side boasts smaller ruby rod, sparkling and smelling of roses. Which one has the best chance of pulling a golden whale?
+===rod===
 
-*[The silver one, of course. Magpies are attracted to silver back on Earth. A golden whale isn't a magpie, of course, but... it's a pretty rod. Huh. Maybe you're a magpie.]
-->silver_rod_path
-
-*[The ruby rod smells like flowers, surely a golden whale couldn't say no to that? I mean, it's not a bee, but it does smell good. Huh. Maybe you're a bee.]
-->ruby_rod_path
-
-===silver_rod_path===
-
-The Fisherthing plops down the squishy chair on the port side. You pick up the silver fishing rod, cast the bobber out, and wait. And wait. Could there really be tiny mites here in a place so hostile? You look out into space, but there's much to see other than asteroids. Just some twinkling lights in the blackness. You shiver. It's not cold; you just feel very, very small, and very, very alone.
+The Fisherthing plops down the squishy chair for you to sit on. You pick up the fishing rod, cast the bobber out, and wait. And wait. Could there really be tiny mites here in a place so hostile? You look out into space, but there's much to see other than asteroids. Just some twinkling lights in the blackness. You shiver. It's not cold; you just feel very, very small, and very, very alone.
 
 *[Make small talk to pass the time. You're not that alone, after all.]
 ->Small_talk
@@ -1294,7 +1304,7 @@ You whistle a tune. Its simple and makes you feel warm inside. It reminds you of
 ===whale_spotted===
 
 "THARRRR she is!" Eronon shouts. "A gol' whale!" 
-You jump, your train of thought totally derailed. But there it is, golden and gleaming, right in front of you! You picked the right side, but Eronon isn't disappointed. On the contrary, it is absolutely ecstatic for you. The whale glides smoothly over the ship and lets out a low rumble. You don't speak whale, and neither does Eronon, but the meaning is clear to you both. Its eyes are deep set and intelligent. It is saying hello.
+You jump, your train of thought totally derailed. But there it is, golden and gleaming, right in front of you! Erenon is absolutely ecstatic for you. It whoops. The whale glides smoothly over the ship and lets out a low rumble. You don't speak whale, and neither does Eronon, but the meaning is clear to you both in its intelligent eyes. It is saying hello.
 
 You look back at Eronon, with words on the tip of your tongue. Sharing this moment with a total stranger has definitely changed you. And now, you aren't sure you want to leave. You can feel the taste of the hobnob on your tongue again, and you're sure its a sign you're returning.
 
@@ -1312,14 +1322,6 @@ You blink and the machine is back in front of you. The wrapper is still in your 
 *[I wonder what else is in this machine?]
 ->Vending_Machine_Entrance
 
-===ruby_rod_path===
-
-The Fisherthing plops down the squishy chair on the starboard side. You pick up the ruby fishing rod, cast the bobber out, and wait. And wait. Could there really be tiny mites here in a place so hostile? You look out into space, but there's much to see other than asteroids. Just some twinkling lights in the blackness. You shiver. It's not cold; you just feel very, very small, and very, very alone.
-
-*[Make small talk to pass the time. You're not that alone, after all.]
-->Small_talk
-*[Whistle a tune. Maybe the Fisherthing will like it.]
-->Whistle_tune
 ->END
 
 //and that's just one path... that was, what, 300 lines? I have two more to do! That took me like four/five hours lmao.
@@ -1328,7 +1330,4 @@ The Fisherthing plops down the squishy chair on the starboard side. You pick up 
 delicious
 ->END
 
-===gummy_worm===
-squiggly
-->END
 
