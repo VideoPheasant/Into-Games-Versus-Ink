@@ -4,7 +4,7 @@ INCLUDE Deprecated.ink
 VAR time = 0
 VAR dinner_time = 120
 VAR VendingMachineInteraction = 0
-
+VAR EmptyWrapperRejection = 0
 You're hungry. You've eaten every product sold on every shelf in every shop in town and you're still hungry. You've eaten the contents of every menu in every restaurant and you've nibbled the corners of the menus themselves for good measure. None of it is enough.
 
 It took a lot, but today you can finally eat something new again. There are three shimmering, vibrating coins in your pocket. They rumble like upset stomachs. This dimension has given them indigestion. It's time to send them home.
@@ -47,8 +47,11 @@ There it is. The vending machine.
 +{not Jenyth_Button.Pushed}<i>MSN de POMP. VINS.</i>
 ->Jenyth_Button
 
-*The Empty Wrapper Company
++{not space_legs}The Empty Wrapper Company
 ->Fautical_Button
+
+*{EmptyWrapperRejection}Text showing that the button is accessible again in a changed form.
+->Empty_Wrapper_Return
 
 ===Thomas_Button===
 
@@ -1077,13 +1080,13 @@ The Empty Wrapper Company sounds like it should have gone bankrupt a long time a
 
 You eye the dull red wrapper, and read the only thing printed on it: "It's not what you expect, but it's what you need."
 
-*[I wouldn't expect a million pounds but it's certainly what I need. Hit me up.]
++[I wouldn't expect a million pounds but it's certainly what I need. Hit me up.]
 You push the button. The machine makes no noise and doesn't appear to disperse anything. For a moment you think you've been scammed, and wish you'd grabbed your phone to record the injustice. You're raising your foot to try to kick the machine into life, but as you look down you see the empty wrapper has appeared in the pick-up-box.
-    **[Kick the machine anyway.]
+    ++[Kick the machine anyway.]
     You accomplish nothing but a stubbed toe.
-        ***[Pick up the empty wrapper whilst wincing.]
+        +++[Pick up the empty wrapper whilst wincing.]
     ->empty_wrapper
-    **[Pick up the empty wrapper.]
+    ++[Pick up the empty wrapper.]
     ->empty_wrapper
 
 
@@ -1097,8 +1100,8 @@ You pick up the litle wrapper and press the foil between your thumb and forefing
 *[A million pounds, a million pounds, a million pounds!]
     You rip it open like your mother taught you. ->confectionery
 *[No. This is some seriously bad mojo.]
-    text again ->Vending_Machine_Entrance
-
+   text again ->Vending_Machine_Entrance
+TODO:Provide text for the above
 ===confectionery===
 
 
@@ -1112,7 +1115,7 @@ VAR choice = 0
 -2: ->teacake
 -3: ->gummy_worm
 }
-
+TODO:consider disabling this functionality and pledging allegiance to the hobnob
 ===hobnob===
 <> To your astonishment, a humble chocolate hobnob somehow falls out of the tiny wrapper. You take it in for a moment. Ah, the hobnob. The superior cousin to the digestive, argue with the wall. It looks perfectly ordinary. You can't imagine it really belongs here. I mean, it was a fun party trick, it appearing from nowhere, but surely it's just, y'know, a hobnob?
 
@@ -1198,6 +1201,8 @@ You book it. You rise from the squishy chair, which does a fantastially inconven
 ->scrunch_the_wrapper
 
 ===scrunch_the_wrapper===
+~EmptyWrapperRejection = 1
+TODO:This looks like the only place where the player is ejected, which is convenient. If there are other places where this happens, set the variable as above to make the new button appear.
 You blink and the machine is back in front of you. The wrapper is still in your hand. You turn it over as you try to process what just happened. In so doing, you catch an eye of a fine print.
 'The Empty Wrapper Company assures its customers no harm can possibly come to them during their transport. This does not affect your statutory rights.'
 *[Scrunch the empty wrapper into a ball.]
@@ -1332,3 +1337,6 @@ delicious
 squiggly
 ->END
 
+===Empty_Wrapper_Return===
+Text showing a sort of reconciliation with the fisher thing, before directing on to the next stage of the story.
+->END
