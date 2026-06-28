@@ -1,27 +1,27 @@
 INCLUDE Functions.ink
 INCLUDE Deprecated.ink
 
+# author: The Into Games Narrative Workshop
+
 VAR time = 0
 VAR dinner_time = 120
 VAR VendingMachineInteraction = 0
 VAR EmptyWrapperRejection = 0
 You're hungry. You've eaten every product sold on every shelf in every shop in town and you're still hungry. You've eaten the contents of every menu in every restaurant and you've nibbled the corners of the menus themselves for good measure. None of it is enough.
 
-It took a lot, but today you can finally eat something new again. There are three shimmering, vibrating coins in your pocket. They rumble like upset stomachs. This dimension has given them indigestion. It's time to send them home.
-
-There it is. The vending machine.
+It took a lot, but today you can finally eat something new again. There are three shimmering, vibrating coins in your pocket. The interdimensional vending machine is hungry for them. It offers you new experiences in return.
 
 ->Vending_Machine_Entrance
 
 ===Vending_Machine_Entrance===
-
+# CLEAR
 
 {VendingMachineInteraction == 3:
-    3 Interactions, and probably a direct on to the next part of the game.
+    Your final coin is gulped out of existence. ->Ending
   - else:{VendingMachineInteraction == 2:
   A second of your three extra dimensional coins has dissolved against the surface of our reality like a communion wafer. The machine is salivating static. It smells like disappointed onions.
   - else:{VendingMachineInteraction == 1:
-  The vending machine has eaten one of your three extra dimensional coins. The emptiness it leaves behind has a strange weight in the pit of your pocket. If anything the machine seems hungrier than before, and so for that matter do you.
+   The vending machine has eaten one of your three extra dimensional coins. The emptiness it leaves behind has a strange weight in the pit of your pocket. If anything the machine seems hungrier than before, and so for that matter do you.
   - else:
     {It looms over you. It hums with the low irregularity of an old fridge. It wants you to push its buttons.|The vending machine waits hungrily for you to make another selection. Go on. Treat yourself. Open yourself up to new experiences.}
 }
@@ -158,6 +158,9 @@ The packaging seems to sense your rejection and heats up rapidly in your hand un
     ->Vending_Machine_Entrance
 
 ===Lucy_Button===
+{Lucy_Button ==1:
+~VendingMachineInteraction = VendingMachineInteraction + 1
+    }
 Thank you for pressing this button - we guarantee we have products that will always leave you wanting more!
 
 There {is 1 more button on the machine to press | is now a 2nd button to press | is now a 3rd button to press} - how exciting! // Each option appears the more player presses through the food/drink options.
@@ -385,6 +388,9 @@ VAR GreyCubesEaten = 0
 
 
 ===Sticky_Button===
+{Sticky_Button == 1: 
+    ~VendingMachineInteraction = VendingMachineInteraction +1
+    }
 {The button yields to your touch - it feels a lot like a poking your fingertips into a pot of homemade slime.|}
 
 The vending machine's speakers crackle into life.
@@ -1076,6 +1082,9 @@ The voice is gone. #audio_ID_23_Jenyth
 }
 
 ===Fautical_Button===
+{Fautical_Button == 1:
+    ~VendingMachineInteraction = VendingMachineInteraction +1
+        }
 The Empty Wrapper Company sounds like it should have gone bankrupt a long time ago. Who would purchase nothing? But then again, you were drawn to it for some reason...
 
 You eye the dull red wrapper, and read the only thing printed on it: "It's not what you expect, but it's what you need."
@@ -1338,4 +1347,37 @@ delicious
 
 ===Empty_Wrapper_Return===
 Text showing a sort of reconciliation with the fisher thing, before directing on to the next stage of the story.
+TODO:Fill this in and then direct to the relevant content to continue.
+->END
+
+===Ending===
+Buttons fade from view. Possibilities constrict like a swallowing gullet.
+
+*[You scrabble for more options. Still hungry.] Perhaps next time you'll try something different, by someone different. That would be nice.
+
+**  {not Thomas_Button}Maybe the spicy slices?
+
+**  {not Lucy_Button}There was a button that offered- but didn't guarantee- satisfaction. A tempting offer.
+
+**  {not Teo_Button}There were jellybeans! Should have picked the jellybeans!
+
+**  {not Incomprehensible_Word}It would have been nice to maybe comprehend the Incomprehensible Word.
+
+**  {not Jenyth_Button}There was wine available. Vending machine wine. Who would dream of passing up such a thing?
+
+**  {not Fautical_Button}The Empty Wrapper Company offered an experience guaranteed to exceed expectations.
+
+-   
+
+Maybe next time. You're hungry, but you know there are new things to try, and new people to try them with. That will always have to be enough.
+
+
+This vending machine was created by the Weekly Narrative Workshop in affiliation with Into Games. Each contributor is trying something new. Some have scripted for the first time. Some are writing fiction for the first time. Some have just created their first interactive experience.#CLASS: Signoff
+
+Those creators are:#CLASS: Signoff
+
+
+
+TODO:Credits
+
 ->END
