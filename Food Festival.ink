@@ -1,7 +1,8 @@
+# title: The Into Games Narrative Vending Machine
+# author: The Into Games Narrative Workshop
+
 INCLUDE Functions.ink
 INCLUDE Deprecated.ink
-
-# author: The Into Games Narrative Workshop
 
 VAR time = 0
 VAR dinner_time = 120
@@ -11,10 +12,13 @@ You're hungry. You've eaten every product sold on every shelf in every shop in t
 
 It took a lot, but today you can finally eat something new again. There are three shimmering, vibrating coins in your pocket. The interdimensional vending machine is hungry for them. It offers you new experiences in return.
 
+
+*Approach the vending machine.
 ->Vending_Machine_Entrance
 
 ===Vending_Machine_Entrance===
 # CLEAR
+# IMAGE: vendingmachine.png
 
 {VendingMachineInteraction == 3:
     Your final coin is gulped out of existence. ->Ending
