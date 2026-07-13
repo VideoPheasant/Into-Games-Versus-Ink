@@ -20,7 +20,7 @@ It took a lot, but today you can finally eat something new again. There are thre
 # CLEAR
 # IMAGE: vendingmachine.png
 
-{VendingMachineInteraction == 3:
+{VendingMachineInteraction >= 3:
     Your final coin is gulped out of existence. ->Ending
   - else:{VendingMachineInteraction == 2:
   A second of your three extra dimensional coins has dissolved against the surface of our reality like a communion wafer. The machine is salivating static. It smells like disappointed onions.
