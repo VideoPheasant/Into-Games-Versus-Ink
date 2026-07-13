@@ -1375,13 +1375,27 @@ Buttons fade from view. Possibilities constrict like a swallowing gullet.
 
 Maybe next time. You're hungry, but you know there are new things to try, and new people to try them with. That will always have to be enough.
 
+*The End
+->Credits
 
-This vending machine was created by the Weekly Narrative Workshop in affiliation with Into Games. Each contributor is trying something new. Some have scripted for the first time. Some are writing fiction for the first time. Some have just created their first interactive experience.#CLASS: Signoff
+
+===Credits===
+# CLEAR
+This vending machine was created by the Weekly Narrative Workshop in affiliation with Into Games. Each contributor is trying something new. Some have scripted for the first time. Some are writing fiction for the first time. Some have just created their first ever interactive experience.#CLASS: Signoff
 
 Those creators are:#CLASS: Signoff
 
+Workshop Host:#CLASS: Signoff
 
+Videopheasant (Sister Tilly Sizzle's Slightly Too Spicy Slices! / Project Manager)#CLASS: Signoff
 
-TODO:Credits
+Workshoppers responsible for concept, pitching, and implementation:#CLASS: Signoff
+
+Lucy Saskia (Satisfaction? Maybe.)#CLASS: Signoff
+Lyra92 (Oobleck Enterprise's Non-Newtonian Nutrition)#CLASS: Signoff
+teoqer (Sir Jerry Breen's Fantastical Jellybeans)#CLASS: Signoff
+IsJonPotter (Incomprehensible Word)#CLASS: Signoff
+Jenyth (MSN de POMP. VINS.)#CLASS: Signoff
+Fautical (The Empty Wrapper Company)#CLASS: Signoff
 
 ->END
